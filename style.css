@@ -228,11 +228,12 @@ address { font-style: normal; }
   text-align: center;
 }
 
+
 .hero__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* A "mágica" acontece aqui */
-  display: block;    /* Remove espaços indesejados no rodapé da imagem */
+  object-fit: cover;
+  display: block;
 }
 
 /* Animação de entrada (ativada via JS com IntersectionObserver) */
@@ -1865,4 +1866,393 @@ address { font-style: normal; }
     transition-duration: 0.01ms !important;
   }
   html { scroll-behavior: auto; }
+}
+
+
+/* ============================================================
+   18. BREAKPOINTS ADICIONAIS E REFINAMENTOS RESPONSIVOS
+   Complementa a seção 17 sem sobrescrever o que já funciona.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   18a. PREVENÇÃO GLOBAL DE OVERFLOW HORIZONTAL
+   Garante que nenhum elemento ultrapasse a largura da tela
+   em qualquer dispositivo — especialmente crítico em <320px.
+   ------------------------------------------------------------ */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
+
+/* Garante que elementos com padding não vazem */
+.container {
+  /* Fallback seguro para telas muito estreitas */
+  padding-inline: max(1rem, env(safe-area-inset-left, 1rem));
+}
+
+
+/* ------------------------------------------------------------
+   18b. TOUCH TARGETS — mínimo de 44×44px (WCAG 2.5.5)
+   Aplicado globalmente para todos os alvos interativos.
+   ------------------------------------------------------------ */
+@media (pointer: coarse) {
+  /* Botões e links de ação */
+  .btn,
+  .nav__link,
+  .card__link,
+  .filtro__btn,
+  .footer__link,
+  .rede__link,
+  .whatsapp-float {
+    min-height: 44px;
+  }
+
+  /* Campos de formulário mais altos no touch */
+  .form__input,
+  .form__select,
+  .form__textarea {
+    min-height: 48px;
+    font-size: 16px; /* previne zoom automático no iOS */
+  }
+
+  /* Checkbox maior no touch */
+  .form__checkbox {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   18c. WIDE / LARGE DESKTOP — ≥ 1440px
+   Ajustes para monitores wide e telas 4K,
+   garantindo que o conteúdo não fique excessivamente esticado.
+   ------------------------------------------------------------ */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1320px; /* expande o container nos wide */
+  }
+
+  /* Hero mais alto e generoso em wide */
+  .section--hero {
+    min-height: 88vh;
+    padding-top: calc(var(--header-altura) + var(--space-20));
+  }
+
+  /* Stats com mais respiro */
+  .apresentacao__stats {
+    padding: var(--space-12) var(--space-16);
+  }
+
+  /* Cards de categoria: 3 colunas com gap maior */
+  .categorias__grid,
+  .diferenciais__grid,
+  .produtos__grid {
+    gap: var(--space-8);
+  }
+
+  /* Footer com colunas mais espaçadas */
+  .footer__inner {
+    gap: var(--space-16);
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+
+  /* Fonte do corpo levemente maior para conforto de leitura */
+  body { font-size: 1.0625rem; } /* 17px */
+}
+
+
+/* ------------------------------------------------------------
+   18d. REFINAMENTOS TABLET (≤ 1024px)
+   Complementa o que já existe — ajustes pontuais ausentes.
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+
+  /* Logo text ligeiramente menor para não colidir com menu */
+  .logo__text { font-size: var(--text-base); }
+
+  /* Seção apresentação: imagem não ultrapassa a área */
+  .apresentacao__imagem .image-placeholder,
+  .historia__imagem .image-placeholder {
+    width: 100%;
+    height: clamp(200px, 40vw, 320px);
+  }
+
+  /* CTA: botões side-by-side ainda em tablet médio */
+  .cta__acoes {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  /* Contato: formulário ocupa largura total */
+  .contato__formulario {
+    padding: var(--space-8);
+  }
+
+  /* Parceiros: 3 por linha no tablet */
+  .parceiros__grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+  }
+
+  /* MVV: manter 3 colunas até 900px, depois 1 */
+  .sobre__mvv {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .sobre__mvv {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   18e. REFINAMENTOS MOBILE (≤ 768px)
+   Complementa a seção 17 com ajustes ausentes.
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+
+  /* Header: logo text mais curto */
+  .logo__text { font-size: var(--text-sm); }
+
+  /* Seções: padding vertical reduzido */
+  .section { padding-block: var(--space-12); }
+
+  /* Seção apresentação */
+  .apresentacao__grid { gap: var(--space-8); }
+  .apresentacao__texto .section__title { font-size: var(--text-2xl); }
+  .apresentacao__imagem .image-placeholder { height: clamp(180px, 45vw, 260px); }
+
+  /* Stats: 2 colunas bem ajustadas */
+  .apresentacao__stats {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-6);
+    gap: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Categorias: 2 colunas no tablet médio, 1 no mobile menor */
+  .categorias__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+  .categoria__card  { padding: var(--space-6); }
+
+  /* Diferenciais */
+  .diferenciais__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .diferencial__item  { padding: var(--space-5); }
+
+  /* Produtos */
+  .produtos__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+
+  /* CTA: centralizado, botões empilhados */
+  .cta__title { font-size: var(--text-2xl); }
+  .cta__acoes { flex-direction: column; align-items: stretch; }
+  .cta__acoes .btn { justify-content: center; }
+
+  /* Sobre: imagem antes do texto */
+  .sobre__historia { gap: var(--space-8); }
+  .historia__imagem { order: -1; }
+  .historia__imagem .image-placeholder { height: clamp(180px, 45vw, 260px); }
+
+  /* Contato: info lateral reorganizada */
+  .contato__info { gap: var(--space-4); }
+  .contato__whatsapp { padding: var(--space-6); }
+  .contato__dados { padding: var(--space-6); }
+
+  /* Parceiros: 2 por linha */
+  .parceiros__grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  /* Footer: gap menor */
+  .footer__inner { gap: var(--space-6); }
+
+  /* Botão de submit mais alto */
+  .btn--full { padding: 1rem 1.75rem; }
+}
+
+
+/* ------------------------------------------------------------
+   18f. REFINAMENTOS MOBILE PEQUENO (≤ 480px)
+   Complementa o que já existe na seção 17.
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+
+  /* Seções mais compactas */
+  .section { padding-block: var(--space-10); }
+  .section__header { margin-bottom: var(--space-8); }
+
+  /* Eyebrow menor */
+  .section__eyebrow { font-size: 0.65rem; }
+
+  /* Títulos de seção */
+  .section__title    { font-size: var(--text-2xl); }
+  .section__subtitle { font-size: var(--text-base); }
+
+  /* Categorias: 1 coluna em mobile pequeno */
+  .categorias__grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .categoria__card  { padding: var(--space-5); flex-direction: row; flex-wrap: wrap; gap: var(--space-3); }
+  .card__icon       { flex-shrink: 0; }
+  .card__title      { font-size: var(--text-base); width: 100%; margin-top: 0; }
+  .card__descricao  { font-size: var(--text-sm); width: 100%; }
+
+  /* Diferenciais */
+  .diferencial__item {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+  .diferencial__icon { flex-shrink: 0; }
+  .diferencial__titulo  { font-size: var(--text-base); width: 100%; }
+  .diferencial__descricao { font-size: var(--text-sm); width: 100%; }
+
+  /* Produtos: 1 coluna */
+  .produtos__grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .produto__imagem .image-placeholder { height: 140px; }
+  .produto__info { padding: var(--space-4); }
+
+  /* Stats: empilhados */
+  .apresentacao__stats {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-5);
+    gap: var(--space-3);
+  }
+  .stat__numero { font-size: var(--text-2xl); }
+
+  /* Sobre MVV: 1 coluna */
+  .sobre__mvv { grid-template-columns: 1fr; gap: var(--space-4); }
+  .mvv__card  { padding: var(--space-5); }
+
+  /* Parceiros: scroll horizontal */
+  .parceiros__grid {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-2);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .parceiro__logo {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  /* Formulário compacto */
+  .contato__formulario { padding: var(--space-5); }
+  .formulario__titulo  { font-size: var(--text-lg); margin-bottom: var(--space-5); }
+  .form__grupo { margin-bottom: var(--space-4); }
+
+  /* Footer compacto */
+  .footer__titulo-coluna { font-size: 0.7rem; }
+  .footer__link,
+  .footer__endereco p { font-size: var(--text-xs); }
+  .footer__certificacoes { flex-wrap: wrap; }
+}
+
+
+/* ------------------------------------------------------------
+   18g. MOBILE MUITO PEQUENO — ≤ 320px
+   Dispositivos com viewport de 320px (ex: iPhone SE 1ª geração).
+   Ajustes cirúrgicos para garantir que nada quebre ou vaze.
+   ------------------------------------------------------------ */
+@media (max-width: 320px) {
+  :root {
+    --header-altura:   60px;
+    --container-pad:   0.75rem;
+    --space-4:         0.875rem;
+  }
+
+  /* Logo mais compacto */
+  .logo__icon  { width: 36px; height: 36px; font-size: 0.6rem; }
+  .logo__text  { font-size: 0.8rem; }
+
+  /* Hambúrguer menor */
+  .header__menu-toggle { width: 36px; height: 36px; }
+
+  /* Hero muito compacto */
+  .section--hero {
+    padding-top: calc(var(--header-altura) + var(--space-8));
+    padding-bottom: var(--space-8);
+  }
+  .hero__title       { font-size: var(--text-2xl); letter-spacing: -0.02em; }
+  .hero__description { font-size: var(--text-sm); }
+  .hero__eyebrow     { font-size: 0.6rem; }
+  .hero__actions     { gap: var(--space-3); }
+  .hero__actions .btn { font-size: var(--text-sm); padding: 0.75rem 1.25rem; }
+
+  /* Sections ainda mais compactas */
+  .section { padding-block: var(--space-8); }
+  .section__title    { font-size: var(--text-xl); }
+  .section__header   { margin-bottom: var(--space-6); }
+
+  /* Stats: 2×2 */
+  .apresentacao__stats {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+  }
+  .stat__numero { font-size: var(--text-xl); }
+  .stat__label  { font-size: 0.65rem; }
+
+  /* Cards de categoria: 1 coluna, mais compactos */
+  .categoria__card { padding: var(--space-4); }
+  .card__icon i,
+  .card__icon .icon-placeholder {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  /* Botões padrão menores */
+  .btn     { font-size: var(--text-sm); padding: 0.75rem 1.25rem; }
+  .btn--sm { font-size: var(--text-xs); padding: 0.5rem 0.875rem; }
+
+  /* CTA compacto */
+  .section--cta { padding-block: var(--space-10); }
+  .cta__title   { font-size: var(--text-xl); }
+  .cta__acoes .btn { padding: 0.75rem 1rem; }
+
+  /* MVV compacto */
+  .mvv__card    { padding: var(--space-4); }
+  .mvv__titulo  { font-size: var(--text-base); }
+
+  /* Formulário muito compacto */
+  .contato__formulario { padding: var(--space-4); }
+  .form__input,
+  .form__select,
+  .form__textarea { padding: 0.625rem 0.75rem; font-size: var(--text-sm); }
+  .btn--full { font-size: var(--text-sm); }
+
+  /* Footer muito compacto */
+  .footer__inner { gap: var(--space-5); padding-block: var(--space-8); }
+  .footer__logo  { gap: var(--space-2); }
+  .footer__redes { flex-wrap: wrap; }
+  .rede__link    { width: 32px; height: 32px; }
+
+  /* WhatsApp flutuante menor ainda */
+  .whatsapp-float {
+    width: 46px;
+    height: 46px;
+    bottom: var(--space-4);
+    right: var(--space-4);
+  }
+  .whatsapp-float i { font-size: 1.4rem; }
 }
