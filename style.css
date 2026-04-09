@@ -12,7 +12,6 @@
       Nunito Sans: corpo de texto (leve, arredondado, laboratorial)
       Outfit: títulos (geométrico, tecnológico, moderno)
    ------------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 
 /* ------------------------------------------------------------
@@ -2255,4 +2254,103 @@ object {
     right: var(--space-4);
   }
   .whatsapp-float i { font-size: 1.4rem; }
+}
+
+/* ------------------------------------------------------------
+   19. NOVOS UTILITÁRIOS — Segurança, Formulário e Escalabilidade
+   ------------------------------------------------------------ */
+
+/* Honeypot anti-spam: visualmente oculto mas acessível ao DOM */
+.form__honeypot {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  tabindex: -1;
+}
+
+/* Feedback de envio do formulário */
+.form__feedback {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  animation: fadeInUp 0.35s ease both;
+}
+.form__feedback--sucesso {
+  background: #F0FDF4;
+  border: 1px solid #86EFAC;
+  color: #166534;
+}
+.form__feedback--erro {
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: #991B1B;
+}
+
+/* Estado de carregamento do botão de envio */
+.btn--loading {
+  pointer-events: none;
+  opacity: 0.75;
+}
+.btn--loading .btn__texto::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: girando 0.7s linear infinite;
+  margin-left: var(--space-2);
+  vertical-align: middle;
+}
+@keyframes girando {
+  to { transform: rotate(360deg); }
+}
+
+/* Input com erro — estado visual */
+.form__input--erro,
+.form__select--erro,
+.form__textarea--erro {
+  border-color: var(--cor-erro) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+/* Produto indisponível (data-disponivel="false") — escalabilidade e-commerce */
+.produto__card[data-disponivel="false"] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.produto__card[data-disponivel="false"] .produto__nome::after {
+  content: ' — Indisponível';
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--cinza-400);
+}
+
+/* Skip link de acessibilidade */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 9999;
+  background: var(--cor-primaria);
+  color: var(--branco);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: top var(--transicao-rapida);
+}
+.skip-link:focus {
+  top: var(--space-4);
 }
