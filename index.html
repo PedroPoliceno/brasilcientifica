@@ -698,12 +698,14 @@
             <h3 class="formulario__titulo">Envie sua mensagem</h3>
 
             <form
+              action="https://formspree.io/f/xzdknbvq"
+              method="post"
               id="formContato"
               class="form"
-              novalidate
               autocomplete="on"
               data-endpoint="/api/contato"
-              aria-label="Formulário de contato">
+              aria-label="Formulário de contato"
+              novalidate>
 
               <!-- Honeypot anti-spam (campo oculto por CSS, não por display:none) -->
               <div class="form__honeypot" aria-hidden="true">
@@ -715,7 +717,8 @@
                 <label for="nome" class="form__label">
                   Nome completo <span class="form__obrigatorio" aria-hidden="true">*</span>
                 </label>
-                <input type="text"
+                <input
+                       type="text"
                        id="nome"
                        name="nome"
                        class="form__input"
@@ -764,13 +767,13 @@
                        class="form__input"
                        placeholder="(00) 00000-0000"
                        autocomplete="tel"
-                       maxlength="20" />
+                       maxlength="15" />
               </div>
 
               <div class="form__grupo">
                 <label for="assunto" class="form__label">Assunto</label>
                 <select id="assunto" name="assunto" class="form__select" autocomplete="off">
-                  <option value=""        disabled selected>Selecione um assunto</option>
+                  <option value="" disabled selected>Selecione um assunto</option>
                   <option value="orcamento">Solicitar Orçamento</option>
                   <option value="catalogo" >Solicitar Catálogo</option>
                   <option value="suporte"  >Suporte Técnico</option>

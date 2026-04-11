@@ -230,6 +230,28 @@ function sanitize(str) {
     },
   };
 
+  const inputTelefone = document.getElementById("telefone");
+
+  inputTelefone.addEventListener('keyup', (e) => {
+    let valor = e.target.value;
+
+    //Remove qualquer caractere que não seja número
+    valor = valor.replace(/\D/g, "");
+
+    //Aplica a formatação dinamicamente
+    if(valor => 0){
+      //(00)
+      valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2");
+    }
+    if(valor.length > 6){
+      //(xx) xxxxx-xxxx
+      valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+    }
+
+    //Atualiza o valor no campo
+    e.target.value = valor.substring(0, 15);
+  });
+
   /* — Exibe/limpa erro em um campo — */
   function setErro(campo, msg) {
     const erroEl = $(`#${campo}-erro`);
@@ -289,7 +311,7 @@ function sanitize(str) {
   }
 
   /* — Coleta dados do formulário — */
-  function coletarDados() {
+  /*function coletarDados() {
     return {
       nome:     sanitize($('#nome', form).value.trim()),
       empresa:  sanitize($('#empresa', form)?.value.trim() ?? ''),
@@ -301,7 +323,7 @@ function sanitize(str) {
   }
 
   /* — Submit — */
-  form.addEventListener('submit', async function (e) {
+  /*form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     // Honeypot: rejeita bots silenciosamente
@@ -335,7 +357,7 @@ function sanitize(str) {
        */
 
       // Simulação de envio (remover ao integrar com backend)
-      await new Promise(r => setTimeout(r, 1200));
+      /*await new Promise(r => setTimeout(r, 1200));
 
       exibirFeedback('sucesso', 'Mensagem enviada com sucesso! Retornaremos em breve.');
       form.reset();
@@ -350,4 +372,4 @@ function sanitize(str) {
       setBtnLoading(false);
     }
   });
-})();
+})();*/})()
