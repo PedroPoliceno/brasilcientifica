@@ -2024,7 +2024,13 @@ object {
    Complementa a seção 17 com ajustes ausentes.
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
+  :root{
+    --header-altura:60px;
+  }
 
+  .section--hero{
+    margin-top: 57px;
+  }
   /* Header: logo text mais curto */
   .logo__text { font-size: var(--text-sm); }
 
@@ -2091,6 +2097,14 @@ object {
    Complementa o que já existe na seção 17.
    ------------------------------------------------------------ */
 @media (max-width: 480px) {
+  :root{
+    --header-altura: 55px
+  }
+  
+  /* Logo mais compacto */
+  .logo__icon  { width: 36px; height: 36px; font-size: 0.6rem; }
+  .logo__text  { font-size: 0.8rem; }
+  
 
   /* Seções mais compactas */
   .section { padding-block: var(--space-10); }
@@ -2174,14 +2188,9 @@ object {
    ------------------------------------------------------------ */
 @media (max-width: 320px) {
   :root {
-    --header-altura:   60px;
     --container-pad:   0.75rem;
     --space-4:         0.875rem;
   }
-
-  /* Logo mais compacto */
-  .logo__icon  { width: 36px; height: 36px; font-size: 0.6rem; }
-  .logo__text  { font-size: 0.8rem; }
 
   /* Hambúrguer menor */
   .header__menu-toggle { width: 36px; height: 36px; }
