@@ -25,7 +25,7 @@ function sanitize(str) {
 
 
 /* ============================================================
-   1. ANO NO RODAPÉ
+   ANO NO RODAPÉ
 ============================================================ */
 (function initAno() {
   const el = $('#anoAtual');
@@ -34,7 +34,7 @@ function sanitize(str) {
 
 
 /* ============================================================
-   2. MENU HAMBÚRGUER (mobile)
+   MENU HAMBÚRGUER (mobile)
 ============================================================ */
 (function initMenu() {
   const toggle = $('#menuToggle');
@@ -70,9 +70,53 @@ function sanitize(str) {
   });
 })();
 
+/* ============================================================
+   MENU DROP DOWN
+============================================================ */
+
+(function initDropdown() {
+  $$('.nav__item--dropdown').forEach(function (item) {
+    const link = item.querySelector('.nav__link');
+    const dropdown = item.querySelector('.nav__dropdown');
+    if (!link || !dropdown) return;
+
+    // Só ativa comportamento por clique em touch
+    function isTouchDevice() {
+      return window.matchMedia('(hover: none)').matches;
+    }
+
+    link.addEventListener('click', function (e) {
+      if (!isTouchDevice()) return; // desktop continua com :hover do CSS
+
+      const aberto = item.classList.contains('nav__item--dropdown--aberto');
+
+      // Fecha todos os outros dropdowns abertos
+      $$('.nav__item--dropdown--aberto').forEach(function (outro) {
+        if (outro !== item) outro.classList.remove('nav__item--dropdown--aberto');
+      });
+
+      if (aberto) {
+        item.classList.remove('nav__item--dropdown--aberto');
+      } else {
+        e.preventDefault(); // evita navegar ao primeiro toque
+        item.classList.add('nav__item--dropdown--aberto');
+      }
+    });
+  });
+
+  // Fecha ao tocar fora
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav__item--dropdown')) {
+      $$('.nav__item--dropdown--aberto').forEach(function (item) {
+        item.classList.remove('nav__item--dropdown--aberto');
+      });
+    }
+  });
+})();
+
 
 /* ============================================================
-   3. SCROLL SUAVE
+   SCROLL SUAVE
 ============================================================ */
 (function initScrollSuave() {
   $$('a[href^="#"]').forEach(anchor => {
@@ -90,7 +134,7 @@ function sanitize(str) {
 
 
 /* ============================================================
-   4. HEADER COM EFEITO AO ROLAR
+   HEADER COM EFEITO AO ROLAR
 ============================================================ */
 (function initHeaderScroll() {
   const header = $('#header');
@@ -103,7 +147,7 @@ function sanitize(str) {
 
 
 /* ============================================================
-   5. LINK ATIVO CONFORME SEÇÃO VISÍVEL (IntersectionObserver)
+   LINK ATIVO CONFORME SEÇÃO VISÍVEL (IntersectionObserver)
 ============================================================ */
 (function initNavAtiva() {
   const secoes   = $$('section[id]');
@@ -129,7 +173,7 @@ function sanitize(str) {
 
 
 /* ============================================================
-   6. FILTRO DE PRODUTOS
+   FILTRO DE PRODUTOS
 ============================================================ */
 (function initFiltro() {
   const btns   = $$('.filtro__btn');
@@ -171,7 +215,7 @@ function sanitize(str) {
 
 
 /* ============================================================
-   7. ANIMAÇÕES DE ENTRADA (Scroll Reveal)
+   ANIMAÇÕES DE ENTRADA (Scroll Reveal)
 ============================================================ */
 (function initScrollReveal() {
   const els = $$('.animar-entrada');
@@ -197,7 +241,7 @@ function sanitize(str) {
 
 
 /* ============================================================
-   8. VALIDAÇÃO E ENVIO DO FORMULÁRIO
+   VALIDAÇÃO E ENVIO DO FORMULÁRIO
    Preparado para integração com backend via fetch().
 ============================================================ */
 (function initFormulario() {

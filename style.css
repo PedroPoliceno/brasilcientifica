@@ -505,6 +505,24 @@ address { font-style: normal; }
   color: var(--cor-primaria);
 }
 
+/* Dropdown aberto por clique (touch) */
+.nav__item--dropdown--aberto .nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Ponte invisível entre o link e o dropdown */
+.nav__item--dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: var(--space-2); /* mesmo valor do gap no top do dropdown */
+}
+
 /* Botão hambúrguer */
 .header__menu-toggle {
   display: none;
