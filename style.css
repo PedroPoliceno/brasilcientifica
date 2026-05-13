@@ -1100,7 +1100,6 @@ address { font-style: normal; }
   line-height: 1.7;
 }
 .mvv__lista {
-  list-style: none;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -1476,7 +1475,7 @@ address { font-style: normal; }
   font-size: var(--text-xs);
   color: var(--cor-acento);
 }
-.dado__icone i { color: var(--cor-acento); font-size: 1rem; }
+.dado__icone i { font-size: 1rem; }
 
 .dado__texto {
   display: flex;
@@ -1725,33 +1724,21 @@ address { font-style: normal; }
 
 /* ------------------------------------------------------------
    17. RESPONSIVIDADE
+   Breakpoints principais (1024 → 768 → 480 → 320px).
+   Seção 18 contém refinamentos adicionais (overflow, touch,
+   wide desktop ≥ 1440px, breakpoint 900px).
    ------------------------------------------------------------ */
 
 /* — Tablet grande (≤ 1024px) — */
 @media (max-width: 1024px) {
+  /* Logo text ligeiramente menor para não colidir com menu */
+  .logo__text { font-size: var(--text-base); }
+
   .apresentacao__grid,
   .sobre__historia {
     grid-template-columns: 1fr;
     gap: var(--space-10);
   }
-
-  .apresentacao__imagem .image-placeholder,
-  .historia__imagem .image-placeholder { height: 280px; }
-
-  .apresentacao__stats { grid-template-columns: repeat(2, 1fr); }
-
-  .categorias__grid,
-  .diferenciais__grid,
-  .sobre__mvv,
-  .produtos__grid { grid-template-columns: repeat(2, 1fr); }
-
-  .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
-
-  .cta__inner { flex-direction: column; text-align: center; }
-  .cta__acoes { justify-content: center; }
-  .cta__descricao { margin-inline: auto; }
-
-  .contato__grid { grid-template-columns: 1fr; }
 
   .apresentacao__imagem {
     width: 100%;
@@ -1760,15 +1747,45 @@ address { font-style: normal; }
     display: block;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: var(--radius-xl)
+    border-radius: var(--radius-xl);
+  }
+
+  /* Imagens de placeholder com altura adaptável */
+  .apresentacao__imagem .image-placeholder,
+  .historia__imagem .image-placeholder {
+    width: 100%;
+    height: clamp(200px, 40vw, 320px);
+  }
+
+  .apresentacao__stats { grid-template-columns: repeat(2, 1fr); }
+
+  .categorias__grid,
+  .diferenciais__grid,
+  .produtos__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* MVV: mantém 3 colunas até 900px (ver breakpoint abaixo) */
+  .sobre__mvv { grid-template-columns: repeat(3, 1fr); }
+
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+
+  .cta__inner { flex-direction: column; text-align: center; }
+  .cta__acoes { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .cta__descricao { margin-inline: auto; }
+
+  .contato__grid { grid-template-columns: 1fr; }
+  .contato__formulario { padding: var(--space-8); }
+
+  /* Parceiros: 3 por linha no tablet */
+  .parceiros__grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
   }
 }
 
-/* — Tablet (≤ 768px) — */
+/* — Mobile (≤ 768px) — */
 @media (max-width: 768px) {
-  :root { --header-altura: 48px; }
-
-  .section { padding-block: var(--space-16); }
+  :root { --header-altura: 60px; }
 
   /* Header mobile */
   .header__menu-toggle { display: flex; }
@@ -1818,8 +1835,13 @@ address { font-style: normal; }
     margin-top: var(--space-1);
   }
 
+  /* Logo text mais curto */
+  .logo__text { font-size: var(--text-sm); }
+
+  /* Hero */
   .section--hero {
     min-height: auto;
+    margin-top: 57px;
     padding-top: calc(var(--header-altura) + var(--space-12));
   }
   .hero__media { display: none; }
@@ -1827,42 +1849,128 @@ address { font-style: normal; }
   .hero__actions { flex-direction: column; }
   .hero__actions .btn { text-align: center; justify-content: center; }
 
-  .categorias__grid,
-  .diferenciais__grid,
-  .sobre__mvv,
-  .produtos__grid { grid-template-columns: 1fr; }
+  /* Seções: padding vertical reduzido */
+  .section { padding-block: var(--space-12); }
 
-  .apresentacao__stats { grid-template-columns: repeat(2, 1fr); }
-  .stat__item::after { display: none; }
+  /* Apresentação */
+  .apresentacao__grid { gap: var(--space-8); }
+  .apresentacao__texto .section__title { font-size: var(--text-2xl); }
+  .apresentacao__imagem .image-placeholder { height: clamp(180px, 45vw, 260px); }
 
-  .footer__inner {
-    grid-template-columns: 1fr;
-    padding-block: var(--space-10);
-  }
-  .footer__bottom-inner { flex-direction: column; text-align: center; }
-
-  .contato__formulario { padding: var(--space-6); }
-}
-
-/* — Mobile (≤ 480px) — */
-@media (max-width: 480px) {
-  .hero__title      { font-size: var(--text-3xl); }
-  .hero__description { font-size: var(--text-base); }
-
-  .cta__acoes { flex-direction: column; }
-  .cta__acoes .btn { text-align: center; }
-
+  /* Stats */
   .apresentacao__stats {
     grid-template-columns: 1fr 1fr;
     padding: var(--space-6);
+    gap: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+  .stat__item::after { display: none; }
+
+  /* Categorias: 2 colunas no tablet, 1 no mobile menor */
+  .categorias__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+  .categoria__card  { padding: var(--space-6); }
+
+  /* Diferenciais */
+  .diferenciais__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .diferencial__item  { padding: var(--space-5); }
+
+  /* Produtos */
+  .produtos__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+
+  /* CTA: centralizado, botões empilhados */
+  .cta__title { font-size: var(--text-2xl); }
+  .cta__acoes { flex-direction: column; align-items: stretch; }
+  .cta__acoes .btn { justify-content: center; }
+
+  /* Sobre: imagem antes do texto */
+  .sobre__mvv { grid-template-columns: 1fr; }
+  .sobre__historia { gap: var(--space-8); }
+  .historia__imagem { order: -1; }
+  .historia__imagem .image-placeholder { height: clamp(180px, 45vw, 260px); }
+
+  /* Contato */
+  .contato__info { gap: var(--space-4); }
+  .contato__whatsapp { padding: var(--space-6); }
+  .contato__dados { padding: var(--space-6); }
+  .contato__formulario { padding: var(--space-6); }
+
+  /* Parceiros: 2 por linha */
+  .parceiros__grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: var(--space-4);
   }
 
-  .whatsapp-float {
-    bottom: var(--space-5);
-    right: var(--space-5);
-    width: 52px;
-    height: 52px;
+  /* Footer */
+  .footer__inner {
+    grid-template-columns: 1fr;
+    padding-block: var(--space-10);
+    gap: var(--space-6);
   }
+  .footer__bottom-inner { flex-direction: column; text-align: center; }
+
+  /* Botão de submit */
+  .btn--full { padding: 1rem 1.75rem; }
+}
+
+/* — Mobile pequeno (≤ 480px) — */
+@media (max-width: 480px) {
+  :root { --header-altura: 55px; }
+
+  /* Logo mais compacto */
+  .logo__icon { width: 36px; height: 36px; font-size: 0.6rem; }
+  .logo__text { font-size: 0.8rem; }
+
+  /* Hero */
+  .hero__title      { font-size: var(--text-3xl); }
+  .hero__description { font-size: var(--text-base); }
+
+  /* Seções mais compactas */
+  .section { padding-block: var(--space-10); }
+  .section__header { margin-bottom: var(--space-8); }
+  .section__eyebrow { font-size: 0.65rem; }
+  .section__title    { font-size: var(--text-2xl); }
+  .section__subtitle { font-size: var(--text-base); }
+
+  /* CTA */
+  .cta__acoes { flex-direction: column; }
+  .cta__acoes .btn { text-align: center; }
+
+  /* Stats */
+  .apresentacao__stats {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-5);
+    gap: var(--space-3);
+  }
+  .stat__numero { font-size: var(--text-2xl); }
+
+  /* Categorias: 1 coluna em mobile pequeno */
+  .categorias__grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .categoria__card  { padding: var(--space-5); flex-direction: row; flex-wrap: wrap; gap: var(--space-3); }
+  .card__icon       { flex-shrink: 0; }
+  .card__title      { font-size: var(--text-base); width: 100%; margin-top: 0; }
+  .card__descricao  { font-size: var(--text-sm); width: 100%; }
+
+  /* Diferenciais */
+  .diferencial__item {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+  .diferencial__icon { flex-shrink: 0; }
+  .diferencial__titulo  { font-size: var(--text-base); width: 100%; }
+  .diferencial__descricao { font-size: var(--text-sm); width: 100%; }
+
+  /* Produtos: 1 coluna */
+  .produtos__grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .produto__imagem .image-placeholder { height: 140px; }
+  .produto__info { padding: var(--space-4); }
+
+  /* Sobre MVV: 1 coluna */
+  .sobre__mvv { grid-template-columns: 1fr; gap: var(--space-4); }
+  .mvv__card  { padding: var(--space-5); }
 
   /* Filtro de produtos: scroll horizontal */
   .filtro__lista {
@@ -1876,12 +1984,40 @@ address { font-style: normal; }
   .filtro__lista::-webkit-scrollbar { display: none; }
   .filtro__btn { flex-shrink: 0; }
 
+  /* Parceiros: scroll horizontal */
   .parceiros__grid {
+    display: flex;
     justify-content: flex-start;
     overflow-x: auto;
     flex-wrap: nowrap;
+    gap: var(--space-3);
     padding-bottom: var(--space-2);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
+  .parceiro__logo {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  /* WhatsApp flutuante */
+  .whatsapp-float {
+    bottom: var(--space-5);
+    right: var(--space-5);
+    width: 52px;
+    height: 52px;
+  }
+
+  /* Formulário compacto */
+  .contato__formulario { padding: var(--space-5); }
+  .formulario__titulo  { font-size: var(--text-lg); margin-bottom: var(--space-5); }
+  .form__grupo { margin-bottom: var(--space-4); }
+
+  /* Footer compacto */
+  .footer__titulo-coluna { font-size: 0.7rem; }
+  .footer__link,
+  .footer__endereco p { font-size: var(--text-xs); }
+  .footer__certificacoes { flex-wrap: wrap; }
 }
 
 /* — Preferência de movimento reduzido (acessibilidade) — */
@@ -1898,8 +2034,9 @@ address { font-style: normal; }
 
 
 /* ============================================================
-   18. BREAKPOINTS ADICIONAIS E REFINAMENTOS RESPONSIVOS
-   Complementa a seção 17 sem sobrescrever o que já funciona.
+   18. RESPONSIVIDADE COMPLEMENTAR
+   Breakpoints adicionais e refinamentos que complementam
+   a seção 17 (overflow, touch targets, wide desktop, 900px).
    ============================================================ */
 
 
@@ -1911,10 +2048,10 @@ address { font-style: normal; }
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden;
 }
 
-img,
+/* overflow-x: hidden já declarado no body (seção 2) */
+
 video,
 iframe,
 embed,
@@ -1922,11 +2059,7 @@ object {
   max-width: 100%;
 }
 
-/* Garante que elementos com padding não vazem */
-.container {
-  /* Fallback seguro para telas muito estreitas */
-  padding-inline: max(1rem, env(safe-area-inset-left, 1rem));
-}
+/* img já coberta pelo reset global (seção 2) */
 
 
 /* ------------------------------------------------------------
@@ -2001,213 +2134,18 @@ object {
 }
 
 
-/* ------------------------------------------------------------
-   18d. REFINAMENTOS TABLET (≤ 1024px)
-   Complementa o que já existe — ajustes pontuais ausentes.
-   ------------------------------------------------------------ */
-@media (max-width: 1024px) {
-
-  /* Logo text ligeiramente menor para não colidir com menu */
-  .logo__text { font-size: var(--text-base); }
-
-  /* Seção apresentação: imagem não ultrapassa a área */
-  .apresentacao__imagem .image-placeholder,
-  .historia__imagem .image-placeholder {
-    width: 100%;
-    height: clamp(200px, 40vw, 320px);
-  }
-
-  /* CTA: botões side-by-side ainda em tablet médio */
-  .cta__acoes {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  /* Contato: formulário ocupa largura total */
-  .contato__formulario {
-    padding: var(--space-8);
-  }
-
-  /* Parceiros: 3 por linha no tablet */
-  .parceiros__grid {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-content: center;
-  }
-
-  /* MVV: manter 3 colunas até 900px, depois 1 */
-  .sobre__mvv {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
+/* — Tablet médio (≤ 900px) — MVV empilha abaixo deste ponto — */
 @media (max-width: 900px) {
-  .sobre__mvv {
-    grid-template-columns: 1fr;
-  }
+  .sobre__mvv { grid-template-columns: 1fr; }
 }
 
 
-/* ------------------------------------------------------------
-   18e. REFINAMENTOS MOBILE (≤ 768px)
-   Complementa a seção 17 com ajustes ausentes.
-   ------------------------------------------------------------ */
-@media (max-width: 768px) {
-  :root{
-    --header-altura:60px;
-  }
-
-  .section--hero{
-    margin-top: 57px;
-  }
-  /* Header: logo text mais curto */
-  .logo__text { font-size: var(--text-sm); }
-
-  /* Seções: padding vertical reduzido */
-  .section { padding-block: var(--space-12); }
-
-  /* Seção apresentação */
-  .apresentacao__grid { gap: var(--space-8); }
-  .apresentacao__texto .section__title { font-size: var(--text-2xl); }
-  .apresentacao__imagem .image-placeholder { height: clamp(180px, 45vw, 260px); }
-
-  /* Stats: 2 colunas bem ajustadas */
-  .apresentacao__stats {
-    grid-template-columns: 1fr 1fr;
-    padding: var(--space-6);
-    gap: var(--space-4);
-    border-radius: var(--radius-lg);
-  }
-
-  /* Categorias: 2 colunas no tablet médio, 1 no mobile menor */
-  .categorias__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
-  .categoria__card  { padding: var(--space-6); }
-
-  /* Diferenciais */
-  .diferenciais__grid { grid-template-columns: 1fr; gap: var(--space-4); }
-  .diferencial__item  { padding: var(--space-5); }
-
-  /* Produtos */
-  .produtos__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
-
-  /* CTA: centralizado, botões empilhados */
-  .cta__title { font-size: var(--text-2xl); }
-  .cta__acoes { flex-direction: column; align-items: stretch; }
-  .cta__acoes .btn { justify-content: center; }
-
-  /* Sobre: imagem antes do texto */
-  .sobre__historia { gap: var(--space-8); }
-  .historia__imagem { order: -1; }
-  .historia__imagem .image-placeholder { height: clamp(180px, 45vw, 260px); }
-
-  /* Contato: info lateral reorganizada */
-  .contato__info { gap: var(--space-4); }
-  .contato__whatsapp { padding: var(--space-6); }
-  .contato__dados { padding: var(--space-6); }
-
-  /* Parceiros: 2 por linha */
-  .parceiros__grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: center;
-    gap: var(--space-4);
-  }
-
-  /* Footer: gap menor */
-  .footer__inner { gap: var(--space-6); }
-
-  /* Botão de submit mais alto */
-  .btn--full { padding: 1rem 1.75rem; }
-}
 
 
-/* ------------------------------------------------------------
-   18f. REFINAMENTOS MOBILE PEQUENO (≤ 480px)
-   Complementa o que já existe na seção 17.
-   ------------------------------------------------------------ */
-@media (max-width: 480px) {
-  :root{
-    --header-altura: 55px
-  }
-  
-  /* Logo mais compacto */
-  .logo__icon  { width: 36px; height: 36px; font-size: 0.6rem; }
-  .logo__text  { font-size: 0.8rem; }
-  
 
-  /* Seções mais compactas */
-  .section { padding-block: var(--space-10); }
-  .section__header { margin-bottom: var(--space-8); }
 
-  /* Eyebrow menor */
-  .section__eyebrow { font-size: 0.65rem; }
 
-  /* Títulos de seção */
-  .section__title    { font-size: var(--text-2xl); }
-  .section__subtitle { font-size: var(--text-base); }
 
-  /* Categorias: 1 coluna em mobile pequeno */
-  .categorias__grid { grid-template-columns: 1fr; gap: var(--space-3); }
-  .categoria__card  { padding: var(--space-5); flex-direction: row; flex-wrap: wrap; gap: var(--space-3); }
-  .card__icon       { flex-shrink: 0; }
-  .card__title      { font-size: var(--text-base); width: 100%; margin-top: 0; }
-  .card__descricao  { font-size: var(--text-sm); width: 100%; }
-
-  /* Diferenciais */
-  .diferencial__item {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    padding: var(--space-4);
-  }
-  .diferencial__icon { flex-shrink: 0; }
-  .diferencial__titulo  { font-size: var(--text-base); width: 100%; }
-  .diferencial__descricao { font-size: var(--text-sm); width: 100%; }
-
-  /* Produtos: 1 coluna */
-  .produtos__grid { grid-template-columns: 1fr; gap: var(--space-3); }
-  .produto__imagem .image-placeholder { height: 140px; }
-  .produto__info { padding: var(--space-4); }
-
-  /* Stats: empilhados */
-  .apresentacao__stats {
-    grid-template-columns: 1fr 1fr;
-    padding: var(--space-5);
-    gap: var(--space-3);
-  }
-  .stat__numero { font-size: var(--text-2xl); }
-
-  /* Sobre MVV: 1 coluna */
-  .sobre__mvv { grid-template-columns: 1fr; gap: var(--space-4); }
-  .mvv__card  { padding: var(--space-5); }
-
-  /* Parceiros: scroll horizontal */
-  .parceiros__grid {
-    display: flex;
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    gap: var(--space-3);
-    padding-bottom: var(--space-2);
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  .parceiro__logo {
-    flex-shrink: 0;
-    scroll-snap-align: start;
-  }
-
-  /* Formulário compacto */
-  .contato__formulario { padding: var(--space-5); }
-  .formulario__titulo  { font-size: var(--text-lg); margin-bottom: var(--space-5); }
-  .form__grupo { margin-bottom: var(--space-4); }
-
-  /* Footer compacto */
-  .footer__titulo-coluna { font-size: 0.7rem; }
-  .footer__link,
-  .footer__endereco p { font-size: var(--text-xs); }
-  .footer__certificacoes { flex-wrap: wrap; }
-}
 
 
 /* ------------------------------------------------------------
