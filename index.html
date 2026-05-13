@@ -257,7 +257,7 @@
     <!-- ══════════════════════════════════════════════════════════
          APRESENTAÇÃO
     ══════════════════════════════════════════════════════════════ -->
-    <section class="section section--apresentacao" aria-labelledby="apresentacao-title">
+    __<section class="section section--apresentacao" aria-labelledby="apresentacao-title">
       <div class="container">
 
         <div class="apresentacao__grid">
@@ -275,7 +275,11 @@
             <a href="#sobre" class="btn btn--outline">
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Conheça nossa história
             </a>
-          </div><img class= "apresentacao__imagem" src="images/bc_equipe.webp" alt="Equipe da Brasil Científica">
+          </div>
+          <picture>
+            <source srcset="images/bc_equipe_square.webp" media="(max-width: 570px)" type="image/webp">
+            <img class="apresentacao__imagem" src="images/bc_equipe.webp" alt="Equipe da Brasil Científica">
+          </picture>
         </div>
 
         <div class="apresentacao__stats" role="list" aria-label="Números da Brasil Científica">
@@ -283,7 +287,7 @@
             <strong class="stat__numero">+10</strong>
             <span class="stat__label">Anos de mercado</span>
           </div>
-          <div class="stat__item" role="listitem">
+          <div class="statitem" role="listitem">
             <strong class="stat__numero">+500</strong>
             <span class="stat__label">Produtos disponíveis</span>
           </div>
@@ -472,7 +476,10 @@
         </header>
 
         <div class="sobre__historia">
-          <img class="apresentacao__imagem" src="images/bc_faixada.webp" alt="Imagem da Brasil Científica">
+          <picture>
+            <source srcset="images/bc_faixada_square.webp" media="(max-width: 570px)" type="image/webp">
+            <img class="apresentacao__imagem" src="images/bc_faixada.webp" alt="Frente da Brasil Científica">
+          </picture>
           <div class="historia__texto">
             <h3 class="historia__titulo">Nossa História</h3>
             <p>Desde 2003, a <strong>Brasil Científica</strong> tem sido um pilar no avanço da microbiologia no Brasil. Fundada em parceria com a Newprov, nossa empresa nasceu do propósito de levar produtos de alta qualidade a laboratórios de análises clinicas, assegurando precisão e confiança em cada resultado. Ao longo dos anos, crescemos juntos com nossos parceiros, ampliando nosso portfólio e reforçando nosso compromisso com a inovação e qualidade.</p>
@@ -842,7 +849,7 @@
                 <div class="dado__texto">
                   <strong>Telefone</strong>
                   <a href="tel:+554130337300">(41) 3033-7300</a>
-                  <a href="tel:+5541900000000">(41) 998395626</a>
+                  <a href="tel:+5541900000000">(41) 99839-5626</a>
                 </div>
               </div>
               <div class="dado__item">

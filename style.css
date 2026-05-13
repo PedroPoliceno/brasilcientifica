@@ -1734,7 +1734,7 @@ address { font-style: normal; }
     grid-template-columns: 1fr;
     gap: var(--space-10);
   }
-  .apresentacao__imagem { order: -1; }
+
   .apresentacao__imagem .image-placeholder,
   .historia__imagem .image-placeholder { height: 280px; }
 
@@ -1752,6 +1752,16 @@ address { font-style: normal; }
   .cta__descricao { margin-inline: auto; }
 
   .contato__grid { grid-template-columns: 1fr; }
+
+  .apresentacao__imagem {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-xl)
+  }
 }
 
 /* — Tablet (≤ 768px) — */
