@@ -711,9 +711,10 @@ address { font-style: normal; }
 }
 .apresentacao__descricao:last-of-type { margin-bottom: var(--space-8); }
 
-.apresentacao__imagem .image-placeholder {
+.apresentacao__imagem {
   height: 380px;
   border-radius: var(--radius-xl);
+  object-fit: cover;
 }
 
 /* Stats */
@@ -1143,6 +1144,7 @@ address { font-style: normal; }
   gap: var(--space-5);
 }
 .parceiro__logo {
+  display: flex;
   background: var(--branco);
   border: 1px solid var(--cinza-200);
   border-radius: var(--radius-lg);
@@ -2296,7 +2298,6 @@ object {
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  tabindex: -1;
 }
 
 /* Feedback de envio do formulário */
