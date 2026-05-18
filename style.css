@@ -1135,12 +1135,39 @@ address { font-style: normal; }
   font-size: var(--text-sm);
   margin-bottom: var(--space-8);
 }
+
+/*Rolagem parceiros*/
+.parceiros__trilha-wrapper {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
 .parceiros__grid {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-5);
+  width: max-content;
+  animation: rolagem-logos 30s linear infinite;
+}
+
+.parceiros__grid:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parceiros__grid {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@keyframes rolagem-logos {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 .parceiro__logo {
   display: flex;
