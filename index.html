@@ -109,7 +109,7 @@
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home",     "item": "https://www.brasilcientifica.com/" },
           { "@type": "ListItem", "position": 2, "name": "Produtos", "item": "https://www.brasilcientifica.com/#produtos" },
-          { "@type": "ListItem", "position": 3, "name": "Sobre",    "item": "https://www.brasilcientifica.co/#sobre" },
+          { "@type": "ListItem", "position": 3, "name": "Sobre",    "item": "https://www.brasilcientifica.com/#sobre" },
           { "@type": "ListItem", "position": 4, "name": "Contato",  "item": "https://www.brasilcientifica.com/#contato" }
         ]
       }
@@ -121,7 +121,7 @@
        PERFORMANCE — Favicons e PWA
   ══════════════════════════════════════════════════════════════ -->
   <link rel="icon"             href="images/favicon/favicon.ico" sizes="any" />
-  <link rel="icon"             href="favicon_32x32.png" sizes="32x32">
+  <link rel="icon"             href="images/favicon/favicon_32x32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="images/favicon/favicon_180x180.png" />
   <link rel="manifest"         href="/site.webmanifest" />
 
@@ -257,7 +257,7 @@
     <!-- ══════════════════════════════════════════════════════════
          APRESENTAÇÃO
     ══════════════════════════════════════════════════════════════ -->
-    __<section class="section section--apresentacao" aria-labelledby="apresentacao-title">
+    <section class="section section--apresentacao" aria-labelledby="apresentacao-title">
       <div class="container">
 
         <div class="apresentacao__grid">
@@ -287,7 +287,7 @@
             <strong class="stat__numero">+10</strong>
             <span class="stat__label">Anos de mercado</span>
           </div>
-          <div class="statitem" role="listitem">
+          <div class="stat__item" role="listitem">
             <strong class="stat__numero">+500</strong>
             <span class="stat__label">Produtos disponíveis</span>
           </div>
@@ -526,21 +526,25 @@
         <div class="sobre__parceiros">
           <h3 class="parceiros__titulo">Marcas que Representamos</h3>
           <p class="parceiros__subtitulo">Trabalhamos com os melhores fabricantes nacionais e internacionais</p>
-          <ul class="parceiros__grid" role="list" aria-label="Marcas parceiras">
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_newprov.png" alt="Logo Newprov"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cecon.png" alt="Logo Cecon"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_wama.png" alt="Logo Wama"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cefarz.png" alt="Logo Cefarz"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_produbac.png" alt="Logo Probac"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_plastlabor.png" alt="Logo Plastlabor"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_newprov.png" alt="Logo Newprov"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cecon.png" alt="Logo Cecon"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_wama.png" alt="Logo Wama"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cefarz.png" alt="Logo Cefarz"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_produbac.png" alt="Logo Probac"></li>
-            <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_plastlabor.png" alt="Logo Plastlabor"></li>
-          </ul>
-        </div>
+          <div class="parceiros__trilha-wrapper">
+            <ul class="parceiros__grid" role="list" aria-label="Marcas parceiras">
+              <!-- originais -->
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_newprov.png" alt="Logo Newprov"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cecon.png" alt="Logo Cecon"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_wama.png" alt="Logo Wama"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cefarz.png" alt="Logo Cefarz"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_produbac.png" alt="Logo Probac"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_plastlabor.png" alt="Logo Plastlabor"></li>
+
+              <!-- cópia para o loop — aria-hidden para não duplicar no leitor de tela -->
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_newprov.png" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_cecon.png" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_wama.png" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_cefarz.png" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_produbac.png" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_plastlabor.png" alt=""></li>
+            </ul>
+          </div>
 
       </div>
     </section>

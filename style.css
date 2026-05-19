@@ -1123,7 +1123,11 @@ address { font-style: normal; }
 }
 
 /* Parceiros */
-.sobre__parceiros { text-align: center; }
+.sobre__parceiros {
+  text-align: center;
+  overflow: hidden; 
+}
+
 .parceiros__titulo {
   font-size: var(--text-xl);
   font-weight: 700;
@@ -1139,6 +1143,7 @@ address { font-style: normal; }
 /*Rolagem parceiros*/
 .parceiros__trilha-wrapper {
   overflow: hidden;
+  width: 100%;              /* ocupa largura total disponível */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -1146,10 +1151,15 @@ address { font-style: normal; }
 .parceiros__grid {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap;        /* garante linha única em todos os breakpoints */
   gap: var(--space-5);
   width: max-content;
   animation: rolagem-logos 30s linear infinite;
+  /* remove qualquer max-width herdado */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .parceiros__grid:hover {
@@ -1791,7 +1801,6 @@ address { font-style: normal; }
   .produtos__grid { grid-template-columns: repeat(2, 1fr); }
 
   /* MVV: mantém 3 colunas até 900px (ver breakpoint abaixo) */
-  .sobre__mvv { grid-template-columns: repeat(3, 1fr); }
 
   .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
 
@@ -1802,12 +1811,7 @@ address { font-style: normal; }
   .contato__grid { grid-template-columns: 1fr; }
   .contato__formulario { padding: var(--space-8); }
 
-  /* Parceiros: 3 por linha no tablet */
-  .parceiros__grid {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-content: center;
-  }
+  /* Parceiros: mantém flex/nowrap — não sobrescrever o carrossel */
 }
 
 /* — Mobile (≤ 768px) — */
@@ -1910,7 +1914,6 @@ address { font-style: normal; }
   .cta__acoes .btn { justify-content: center; }
 
   /* Sobre: imagem antes do texto */
-  .sobre__mvv { grid-template-columns: 1fr; }
   .sobre__historia { gap: var(--space-8); }
   .historia__imagem { order: -1; }
   .historia__imagem .image-placeholder { height: clamp(180px, 45vw, 260px); }
@@ -1921,13 +1924,7 @@ address { font-style: normal; }
   .contato__dados { padding: var(--space-6); }
   .contato__formulario { padding: var(--space-6); }
 
-  /* Parceiros: 2 por linha */
-  .parceiros__grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: center;
-    gap: var(--space-4);
-  }
+  /* Parceiros: mantém flex/nowrap — não sobrescrever o carrossel */
 
   /* Footer */
   .footer__inner {
@@ -2011,21 +2008,7 @@ address { font-style: normal; }
   .filtro__lista::-webkit-scrollbar { display: none; }
   .filtro__btn { flex-shrink: 0; }
 
-  /* Parceiros: scroll horizontal */
-  .parceiros__grid {
-    display: flex;
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    gap: var(--space-3);
-    padding-bottom: var(--space-2);
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  .parceiro__logo {
-    flex-shrink: 0;
-    scroll-snap-align: start;
-  }
+  /* Parceiros: mantém o carrossel animado em todos os tamanhos */
 
   /* WhatsApp flutuante */
   .whatsapp-float {
@@ -2176,7 +2159,7 @@ object {
 
 
 /* ------------------------------------------------------------
-   18g. MOBILE MUITO PEQUENO — ≤ 320px
+   18d. MOBILE MUITO PEQUENO — ≤ 320px
    Dispositivos com viewport de 320px (ex: iPhone SE 1ª geração).
    Ajustes cirúrgicos para garantir que nada quebre ou vaze.
    ------------------------------------------------------------ */
