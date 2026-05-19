@@ -171,49 +171,6 @@ function sanitize(str) {
   secoes.forEach(s => obs.observe(s));
 })();
 
-
-/* ============================================================
-   FILTRO DE PRODUTOS
-============================================================ */
-(function initFiltro() {
-  const btns   = $$('.filtro__btn');
-  const cards  = $$('.produto__card');
-  const grid   = $('#produtosGrid');
-  if (!btns.length || !cards.length) return;
-
-  btns.forEach(btn => {
-    btn.addEventListener('click', function () {
-      const cat = this.dataset.categoria;
-
-      // Atualiza botões
-      btns.forEach(b => {
-        b.classList.remove('filtro__btn--ativo');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      this.classList.add('filtro__btn--ativo');
-      this.setAttribute('aria-pressed', 'true');
-
-      // Filtra cards
-      let visiveis = 0;
-      cards.forEach(card => {
-        const mostrar = cat === 'todos' || card.dataset.categoria === cat;
-        card.hidden = !mostrar;
-        if (mostrar) visiveis++;
-      });
-
-      // Anuncia resultado para leitores de tela (aria-live no grid)
-      if (grid) {
-        grid.setAttribute('aria-label',
-          visiveis === 0
-            ? 'Nenhum produto encontrado nesta categoria.'
-            : `${visiveis} produto${visiveis > 1 ? 's' : ''} encontrado${visiveis > 1 ? 's' : ''}.`
-        );
-      }
-    });
-  });
-})();
-
-
 /* ============================================================
    ANIMAÇÕES DE ENTRADA (Scroll Reveal)
 ============================================================ */

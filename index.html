@@ -198,11 +198,9 @@
               Produtos <span class="nav__arrow" aria-hidden="true">▾</span>
             </a>
             <ul class="nav__dropdown" role="menu" aria-label="Categorias de produtos">
-              <li role="none"><a href="#meios-de-cultura" role="menuitem">Meios de Cultura</a></li>
-              <li role="none"><a href="#reagentes"        role="menuitem">Reagentes e Insumos</a></li>
-              <li role="none"><a href="#equipamentos"     role="menuitem">Equipamentos</a></li>
-              <li role="none"><a href="#consumiveis"      role="menuitem">Consumíveis</a></li>
-              <li role="none"><a href="#kits"             role="menuitem">Kits Diagnósticos</a></li>
+              <li role="none"><a href="#portfolio-microbiologia" role="menuitem">Microbiologia</a></li>
+              <li role="none"><a href="#portfolio-diagnostico"   role="menuitem">Diagnóstico</a></li>
+              <li role="none"><a href="#portfolio-acessorios"    role="menuitem">Acessórios</a></li>
             </ul>
           </li>
           <li class="nav__item">
@@ -305,82 +303,7 @@
     </section>
 
 
-    <!-- ══════════════════════════════════════════════════════════
-         CATEGORIAS
-    ══════════════════════════════════════════════════════════════ -->
-    <section class="section section--categorias" aria-labelledby="categorias-title">
-      <div class="container">
 
-        <header class="section__header">
-          <span class="section__eyebrow">Nosso Portfólio</span>
-          <h2 id="categorias-title" class="section__title">Categorias de Produtos</h2>
-          <p class="section__subtitle">Portfólio completo para as necessidades do seu laboratório</p>
-        </header>
-
-        <ul class="categorias__grid" role="list">
-
-          <li class="categoria__card animar-entrada" id="meios-de-cultura">
-            <div class="card__icon">
-              <i class="fa-solid fa-bacterium" aria-hidden="true"></i>
-            </div>
-            <h3 class="card__title">Meios de Cultura</h3>
-            <p class="card__descricao">Meios sólidos, líquidos e cromogênicos para isolamento e identificação de microrganismos. Prontos para uso e desidratados.</p>
-            <a href="#produtos" class="card__link" aria-label="Ver produtos da categoria Meios de Cultura">Ver produtos →</a>
-          </li>
-
-          <li class="categoria__card animar-entrada" id="reagentes">
-            <div class="card__icon">
-              <i class="fa-solid fa-vial" aria-hidden="true"></i>
-            </div>
-            <h3 class="card__title">Reagentes e Insumos</h3>
-            <p class="card__descricao">Corantes, soluções, tampões e reagentes para colorações microbiológicas e testes bioquímicos com alta confiabilidade.</p>
-            <a href="#produtos" class="card__link" aria-label="Ver produtos da categoria Reagentes e Insumos">Ver produtos →</a>
-          </li>
-
-          <li class="categoria__card animar-entrada" id="equipamentos">
-            <div class="card__icon">
-              <i class="fa-solid fa-microscope" aria-hidden="true"></i>
-            </div>
-            <h3 class="card__title">Equipamentos</h3>
-            <p class="card__descricao">Estufas, autoclaves, microscópios, câmaras de fluxo laminar e demais equipamentos para infraestrutura laboratorial completa.</p>
-            <a href="#produtos" class="card__link" aria-label="Ver produtos da categoria Equipamentos">Ver produtos →</a>
-          </li>
-
-          <li class="categoria__card animar-entrada" id="consumiveis">
-            <div class="card__icon">
-              <i class="fa-solid fa-box-open" aria-hidden="true"></i>
-            </div>
-            <h3 class="card__title">Consumíveis</h3>
-            <p class="card__descricao">Placas de Petri, tubos, ansas, ponteiras, luvas e toda a linha de consumíveis laboratoriais de uso rotineiro.</p>
-            <a href="#produtos" class="card__link" aria-label="Ver produtos da categoria Consumíveis">Ver produtos →</a>
-          </li>
-
-          <li class="categoria__card animar-entrada" id="kits">
-            <div class="card__icon">
-              <i class="fa-solid fa-kit-medical" aria-hidden="true"></i>
-            </div>
-            <h3 class="card__title">Kits Diagnósticos</h3>
-            <p class="card__descricao">Kits completos para diagnóstico rápido, testes sorológicos, identificação bacteriana e fúngica e antibiograma.</p>
-            <a href="#produtos" class="card__link" aria-label="Ver produtos da categoria Kits Diagnósticos">Ver produtos →</a>
-          </li>
-
-          <li class="categoria__card animar-entrada" id="epis">
-            <div class="card__icon">
-              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-            </div>
-            <h3 class="card__title">EPIs e Segurança</h3>
-            <p class="card__descricao">Equipamentos de proteção individual, descarte de resíduos e soluções de biossegurança para laboratórios NR-32.</p>
-            <a href="#produtos" class="card__link" aria-label="Ver produtos da categoria EPIs e Segurança">Ver produtos →</a>
-          </li>
-
-        </ul>
-
-        <div class="categorias__footer">
-          <a href="#produtos" class="btn btn--primary">Ver todos os produtos</a>
-        </div>
-
-      </div>
-    </section>
 
 
     <!-- ══════════════════════════════════════════════════════════
@@ -549,124 +472,234 @@
       </div>
     </section>
 
-
     <!-- ══════════════════════════════════════════════════════════
-         PRODUTOS
+         PRODUTOS / PORTFÓLIO
     ══════════════════════════════════════════════════════════════ -->
     <section id="produtos" class="section section--produtos" aria-labelledby="produtos-title">
       <div class="container">
 
         <header class="section__header">
-          <span class="section__eyebrow">Portfólio Completo</span>
-          <h2 id="produtos-title" class="section__title">Produtos</h2>
-          <p class="section__subtitle">Selecione uma categoria para explorar nosso portfólio</p>
+          <span class="section__eyebrow">Portfólio</span>
+          <h2 id="produtos-title" class="section__title">Nossos Produtos</h2>
+          <p class="section__subtitle">Confira alguns itens que fazem parte do nosso catálogo</p>
         </header>
 
-        <!-- Filtro por categoria -->
-        <nav class="produtos__filtro" aria-label="Filtrar produtos por categoria">
-          <ul class="filtro__lista" role="list">
-            <li><button class="filtro__btn filtro__btn--ativo" data-categoria="todos"         type="button" aria-pressed="true">Todos</button></li>
-            <li><button class="filtro__btn"                   data-categoria="meios-cultura"  type="button" aria-pressed="false">Meios de Cultura</button></li>
-            <li><button class="filtro__btn"                   data-categoria="reagentes"      type="button" aria-pressed="false">Reagentes</button></li>
-            <li><button class="filtro__btn"                   data-categoria="equipamentos"   type="button" aria-pressed="false">Equipamentos</button></li>
-            <li><button class="filtro__btn"                   data-categoria="consumiveis"    type="button" aria-pressed="false">Consumíveis</button></li>
-            <li><button class="filtro__btn"                   data-categoria="kits"           type="button" aria-pressed="false">Kits</button></li>
-            <li><button class="filtro__btn"                   data-categoria="epis"           type="button" aria-pressed="false">EPIs</button></li>
+        <!-- ── MICROBIOLOGIA ── -->
+        <div class="portfolio__categoria animar-entrada" id="portfolio-microbiologia">
+          <div class="portfolio__categoria-header">
+            <div class="portfolio__categoria-icone">
+              <i class="fa-solid fa-bacterium" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3 class="portfolio__categoria-titulo">Microbiologia</h3>
+              <p class="portfolio__categoria-descricao">Portfólio completo com assessoria científica para microbiologia clínica, industrial e controle ambiental.</p>
+            </div>
+          </div>
+
+          <ul class="portfolio__subcategorias" role="list">
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-flask-vial" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Meios de Cultura Pronto para Uso</h4>
+              </div>
+              <ul class="sub-card__lista">
+                <li>Placas: 60×15, 90×15 e 140×15 (rodac, biplaca e triplaca)</li>
+                <li>Tubos e Caldos</li>
+                <li>Frascos</li>
+              </ul>
+            </li>
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-jar" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Meios de Cultura em Pó</h4>
+              </div>
+              <ul class="sub-card__lista">
+                <li>Sachê para 1 L</li>
+                <li>Frascos 500 g</li>
+              </ul>
+            </li>
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-circle-radiation" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Teste de Sensibilidade</h4>
+              </div>
+              <ul class="sub-card__lista">
+                <li>Tiras MIC</li>
+                <li>Microdiluição em caldo</li>
+                <li>Polidiscos e Discos Combinados</li>
+                <li>Discos de antifúngicos</li>
+                <li>Discos de antibióticos BRCast e CLSI</li>
+              </ul>
+            </li>
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-droplet" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Suplementos</h4>
+              </div>
+              <ul class="sub-card__lista">
+                <li>Egg Yolk</li>
+                <li>Sangue de carneiro</li>
+                <li>Suplemento VX</li>
+              </ul>
+            </li>
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Potabilidade da Água</h4>
+              </div>
+              <ul class="sub-card__lista">
+                <li>Substrato Coliformes e <em>E. coli</em></li>
+                <li>Sacos de coleta com tiossulfato</li>
+                <li>Acquaplus</li>
+              </ul>
+            </li>
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Hemocultura</h4>
+              </div>
+              <ul class="sub-card__lista">
+                <li>Hemocultura Adulta</li>
+                <li>Hemocultura Pediátrica</li>
+              </ul>
+            </li>
+
           </ul>
-        </nav>
+        </div>
 
-        <!-- Grid de produtos
-             data-sku: SKU interno (escalabilidade e-commerce)
-             data-categoria: categoria para filtro JS
-             data-disponivel: controle de estoque futuro
-        -->
-        <ul class="produtos__grid" id="produtosGrid" role="list" aria-live="polite" aria-label="Lista de produtos">
-
-          <li class="produto__card" data-categoria="meios-cultura" data-sku="MC-001" data-disponivel="true" aria-labelledby="prod-1-titulo">
-            <div class="produto__imagem">
-              <div class="image-placeholder" aria-hidden="true">[FOTO DO PRODUTO]</div>
+        <!-- ── DIAGNÓSTICO ── -->
+        <div class="portfolio__categoria animar-entrada" id="portfolio-diagnostico">
+          <div class="portfolio__categoria-header">
+            <div class="portfolio__categoria-icone">
+              <i class="fa-solid fa-microscope" aria-hidden="true"></i>
             </div>
-            <div class="produto__info">
-              <span class="produto__categoria">Meios de Cultura</span>
-              <h3 id="prod-1-titulo" class="produto__nome">Ágar Sangue</h3>
-              <p class="produto__descricao">Meio enriquecido para o crescimento de microrganismos fastidiosos. Disponível em placas prontas para uso.</p>
-              <div class="produto__acoes">
-                <a href="#contato" class="btn btn--sm btn--outline" aria-label="Solicitar orçamento — Ágar Sangue">Solicitar Orçamento</a>
+            <div>
+              <h3 class="portfolio__categoria-titulo">Diagnóstico</h3>
+              <p class="portfolio__categoria-descricao">Soluções completas para diagnóstico laboratorial: testes rápidos, coleta, corantes e tipagem sanguínea.</p>
+            </div>
+          </div>
+
+          <ul class="portfolio__subcategorias" role="list">
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-vial-virus" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Teste Rápido</h4>
               </div>
-            </div>
-          </li>
+              <ul class="sub-card__lista">
+                <li>Dengue NS1 / IGG / IGM</li>
+                <li>Covid + Influenza / Covid AG</li>
+                <li>Zika IGG/IGM</li>
+                <li>Troponina, Rotavírus, HCV</li>
+                <li>Beta HCG, HBsAG, Tira de urina</li>
+                <li>Sangue oculto sem dieta</li>
+              </ul>
+            </li>
 
-          <li class="produto__card" data-categoria="meios-cultura" data-sku="MC-002" data-disponivel="true" aria-labelledby="prod-2-titulo">
-            <div class="produto__imagem">
-              <div class="image-placeholder" aria-hidden="true">[FOTO DO PRODUTO]</div>
-            </div>
-            <div class="produto__info">
-              <span class="produto__categoria">Meios de Cultura</span>
-              <h3 id="prod-2-titulo" class="produto__nome">Ágar MacConkey</h3>
-              <p class="produto__descricao">Meio seletivo e diferencial para isolamento de enterobactérias e bacilos Gram-negativos de amostras clínicas.</p>
-              <div class="produto__acoes">
-                <a href="#contato" class="btn btn--sm btn--outline" aria-label="Solicitar orçamento — Ágar MacConkey">Solicitar Orçamento</a>
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-syringe" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Coleta</h4>
               </div>
-            </div>
-          </li>
+              <ul class="sub-card__lista">
+                <li>Tubos para coleta, Scalp</li>
+                <li>Agulha múltipla/normal, Seringas</li>
+                <li>Adaptador de coleta, Garrote</li>
+                <li>Coletores perfurocortantes</li>
+                <li>Coletor de urina e fezes, Coproplus</li>
+                <li>Curativos pós-coleta, Coleta 24 horas</li>
+              </ul>
+            </li>
 
-          <li class="produto__card" data-categoria="reagentes" data-sku="RG-001" data-disponivel="true" aria-labelledby="prod-3-titulo">
-            <div class="produto__imagem">
-              <div class="image-placeholder" aria-hidden="true">[FOTO DO PRODUTO]</div>
-            </div>
-            <div class="produto__info">
-              <span class="produto__categoria">Reagentes</span>
-              <h3 id="prod-3-titulo" class="produto__nome">Kit Coloração de Gram</h3>
-              <p class="produto__descricao">Kit completo para coloração diferencial de Gram, contendo todos os reagentes necessários em formulação estabilizada.</p>
-              <div class="produto__acoes">
-                <a href="#contato" class="btn btn--sm btn--outline" aria-label="Solicitar orçamento — Kit Coloração de Gram">Solicitar Orçamento</a>
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-palette" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Corantes</h4>
               </div>
-            </div>
-          </li>
+              <ul class="sub-card__lista">
+                <li>Coloração de Gram</li>
+                <li>Coloração de Ziehl Neelsen</li>
+                <li>Coloração Papanicolau</li>
+                <li>Coloração para Hematologia (manual e automatizado)</li>
+              </ul>
+            </li>
 
-          <li class="produto__card" data-categoria="equipamentos" data-sku="EQ-001" data-disponivel="true" aria-labelledby="prod-4-titulo">
-            <div class="produto__imagem">
-              <div class="image-placeholder" aria-hidden="true">[FOTO DO PRODUTO]</div>
-            </div>
-            <div class="produto__info">
-              <span class="produto__categoria">Equipamentos</span>
-              <h3 id="prod-4-titulo" class="produto__nome">Estufa Bacteriológica</h3>
-              <p class="produto__descricao">Estufa para cultura microbiológica com controle digital de temperatura, disponível em diversas capacidades (50L a 500L).</p>
-              <div class="produto__acoes">
-                <a href="#contato" class="btn btn--sm btn--outline" aria-label="Solicitar orçamento — Estufa Bacteriológica">Solicitar Orçamento</a>
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-hand-holding-droplet" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Tipagem Sanguínea</h4>
               </div>
-            </div>
-          </li>
+              <ul class="sub-card__lista">
+                <li>Anti-A, Anti-B, Anti-AB</li>
+                <li>Anti-D, Anti-Humano</li>
+                <li>TAP, TTPA</li>
+              </ul>
+            </li>
 
-          <li class="produto__card" data-categoria="consumiveis" data-sku="CS-001" data-disponivel="true" aria-labelledby="prod-5-titulo">
-            <div class="produto__imagem">
-              <div class="image-placeholder" aria-hidden="true">[FOTO DO PRODUTO]</div>
-            </div>
-            <div class="produto__info">
-              <span class="produto__categoria">Consumíveis</span>
-              <h3 id="prod-5-titulo" class="produto__nome">Placas de Petri</h3>
-              <p class="produto__descricao">Placas de Petri descartáveis em poliestireno, estéreis, em diversas dimensões (60 mm, 90 mm, 150 mm). Embalagem com 500 unidades.</p>
-              <div class="produto__acoes">
-                <a href="#contato" class="btn btn--sm btn--outline" aria-label="Solicitar orçamento — Placas de Petri">Solicitar Orçamento</a>
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-flask" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Testes de Tolerância</h4>
               </div>
-            </div>
-          </li>
+              <ul class="sub-card__lista">
+                <li>Gluc Up pó e líquido</li>
+                <li>Lact Up pó e líquido</li>
+              </ul>
+            </li>
 
-          <li class="produto__card" data-categoria="kits" data-sku="KT-001" data-disponivel="true" aria-labelledby="prod-6-titulo">
-            <div class="produto__imagem">
-              <div class="image-placeholder" aria-hidden="true">[FOTO DO PRODUTO]</div>
+          </ul>
+        </div>
+
+        <!-- ── ACESSÓRIOS ── -->
+        <div class="portfolio__categoria animar-entrada" id="portfolio-acessorios">
+          <div class="portfolio__categoria-header">
+            <div class="portfolio__categoria-icone">
+              <i class="fa-solid fa-box-open" aria-hidden="true"></i>
             </div>
-            <div class="produto__info">
-              <span class="produto__categoria">Kits Diagnósticos</span>
-              <h3 id="prod-6-titulo" class="produto__nome">Kit ID Enterobactérias</h3>
-              <p class="produto__descricao">Sistema rápido para identificação bioquímica de enterobactérias com leitura em 18–24 horas. Inclui cartela com 20 testes.</p>
-              <div class="produto__acoes">
-                <a href="#contato" class="btn btn--sm btn--outline" aria-label="Solicitar orçamento — Kit ID Enterobactérias">Solicitar Orçamento</a>
+            <div>
+              <h3 class="portfolio__categoria-titulo">Acessórios</h3>
+              <p class="portfolio__categoria-descricao">Descartáveis e acessórios de laboratório para o dia a dia das rotinas clínicas e microbiológicas.</p>
+            </div>
+          </div>
+
+          <ul class="portfolio__subcategorias" role="list">
+
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Descartáveis</h4>
               </div>
-            </div>
-          </li>
+              <ul class="sub-card__lista">
+                <li>Luvas nitrílica / látex</li>
+                <li>Máscaras</li>
+                <li>Lâmina / Lamínula</li>
+                <li>Ponteira, Pipeta</li>
+                <li>Saco de autoclave</li>
+                <li>Indicador biológico</li>
+                <li>Fita para autoclave</li>
+              </ul>
+            </li>
 
-        </ul>
+            <li class="portfolio__sub-card animar-entrada">
+              <div class="sub-card__topo">
+                <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                <h4 class="sub-card__titulo">Acessórios de Laboratório</h4>
+              </div>
+              <ul class="sub-card__lista">
+                <li>Alça de níquel e de platina</li>
+                <li>Alça descartável 1 µL e 10 µL</li>
+                <li>Agulha de níquel e de platina</li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
 
         <div class="produtos__footer">
           <p>Não encontrou o que procura? Temos mais de 500 itens disponíveis.</p>
@@ -936,12 +969,9 @@
         <h4 class="footer__titulo-coluna">Produtos</h4>
         <nav aria-label="Categorias de produtos no rodapé">
           <ul class="footer__lista" role="list">
-            <li><a href="#meios-de-cultura" class="footer__link">Meios de Cultura</a></li>
-            <li><a href="#reagentes"        class="footer__link">Reagentes e Insumos</a></li>
-            <li><a href="#equipamentos"     class="footer__link">Equipamentos</a></li>
-            <li><a href="#consumiveis"      class="footer__link">Consumíveis</a></li>
-            <li><a href="#kits"             class="footer__link">Kits Diagnósticos</a></li>
-            <li><a href="#epis"             class="footer__link">EPIs e Segurança</a></li>
+            <li><a href="#portfolio-microbiologia" class="footer__link">Microbiologia</a></li>
+            <li><a href="#portfolio-diagnostico"   class="footer__link">Diagnóstico</a></li>
+            <li><a href="#portfolio-acessorios"    class="footer__link">Acessórios</a></li>
           </ul>
         </nav>
       </div>
