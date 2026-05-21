@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SEO — SUBSTITUIR PARA CADA POST
+       ✏️  title        → Título do artigo (até 60 caracteres)
+       ✏️  description  → Resumo do artigo (até 155 caracteres)
+       ✏️  canonical    → URL final do post (slug)
+       ✏️  og:image     → Imagem de capa do post (1200×630px)
+       ✏️  article:published_time → Data de publicação (ISO 8601)
+  ══════════════════════════════════════════════════════════════ -->
+  <title>Controle de Qualidade em Meios de Cultura | Blog Brasil Científica</title>
+  <meta name="description" content="Saiba como aplicar boas práticas de controle de qualidade em meios de cultura para garantir resultados microbiológicos confiáveis no laboratório." />
+  <meta name="author" content="Brasil Científica" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#2E4B6E" />
+  <link rel="canonical" href="https://www.brasilcientifica.com/posts/controle-qualidade-meios-cultura.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"                content="article" />
+  <meta property="og:site_name"           content="Brasil Científica" />
+  <meta property="og:locale"              content="pt_BR" />
+  <meta property="og:url"                 content="https://www.brasilcientifica.com/posts/controle-qualidade-meios-cultura.html" />
+  <meta property="og:title"              content="Controle de Qualidade em Meios de Cultura | Blog Brasil Científica" />
+  <meta property="og:description"        content="Saiba como aplicar boas práticas de controle de qualidade em meios de cultura para garantir resultados microbiológicos confiáveis." />
+  <meta property="og:image"              content="https://www.brasilcientifica.com/images/blog/meios-cultura.jpg" />
+  <meta property="article:published_time" content="2025-04-10T08:00:00-03:00" />
+  <meta property="article:author"        content="Brasil Científica" />
+  <meta property="article:section"       content="Microbiologia" />
+
+  <!-- Schema.org — Artigo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Controle de Qualidade em Meios de Cultura: Boas Práticas para Laboratórios Clínicos",
+    "description": "Saiba como aplicar boas práticas de controle de qualidade em meios de cultura para garantir resultados microbiológicos confiáveis.",
+    "image": "https://www.brasilcientifica.com/images/blog/meios-cultura.jpg",
+    "datePublished": "2025-04-10T08:00:00-03:00",
+    "dateModified":  "2025-04-10T08:00:00-03:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Brasil Científica",
+      "url": "https://www.brasilcientifica.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Brasil Científica",
+      "logo": { "@type": "ImageObject", "url": "https://www.brasilcientifica.com/images/logo.png" }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.brasilcientifica.com/posts/controle-qualidade-meios-cultura.html"
+    },
+    "articleSection": "Microbiologia",
+    "inLanguage": "pt-BR"
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon"             href="../images/favicon/favicon.ico" sizes="any" />
+  <link rel="icon"             href="../images/favicon/favicon_32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../images/favicon/favicon_180x180.png" />
+  <link rel="manifest"         href="/site.webmanifest" />
+
+  <!-- Preconnect -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect"   href="https://fonts.googleapis.com" />
+  <link rel="preconnect"   href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        media="print"
+        onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </noscript>
+
+  <!-- CSS principal + Blog -->
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../blog.css" />
+
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header id="header" role="banner">
+    <div class="container header__inner">
+
+      <a href="../index.html" class="header__logo" aria-label="Brasil Científica — Voltar à página inicial">
+        <img src="../images/logo/logo_header.png" alt="Brasil Científica"/>
+      </a>
+
+      <button class="header__menu-toggle" id="menuToggle"
+              aria-controls="mainNav"
+              aria-expanded="false"
+              aria-label="Abrir menu de navegação"
+              type="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="header__nav" id="mainNav" aria-label="Menu principal">
+        <ul class="nav__list" role="list">
+          <li class="nav__item">
+            <a href="../index.html#home" class="nav__link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="../index.html#sobre" class="nav__link">Sobre</a>
+          </li>
+          <li class="nav__item nav__item--dropdown">
+            <a href="../index.html#produtos" class="nav__link" aria-haspopup="true" aria-expanded="false">
+              Produtos <span class="nav__arrow" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav__dropdown" role="menu" aria-label="Categorias de produtos">
+              <li role="none"><a href="../index.html#portfolio-microbiologia" role="menuitem">Microbiologia</a></li>
+              <li role="none"><a href="../index.html#portfolio-diagnostico"   role="menuitem">Diagnóstico</a></li>
+              <li role="none"><a href="../index.html#portfolio-acessorios"    role="menuitem">Acessórios</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a href="../blog.html" class="nav__link nav__link--active" aria-current="page">Blog</a>
+          </li>
+          <li class="nav__item">
+            <a href="../index.html#contato" class="nav__link nav__link--cta">Contato</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- ══════════════════════════════════════════════════════════
+         HERO DO POST
+    ══════════════════════════════════════════════════════════════ -->
+    <section class="post-hero" aria-labelledby="post-titulo">
+
+      <!-- Imagem de capa com overlay -->
+      <div class="post-hero__capa" aria-hidden="true">
+        <div class="image-placeholder post-hero__capa-img">
+          <!-- ✏️ Substituir por:
+          <img src="../images/blog/meios-cultura.webp"
+               alt="Meios de cultura em placas de Petri em bancada de laboratório"
+               loading="eager" fetchpriority="high" decoding="async">
+          -->
+        </div>
+        <div class="post-hero__overlay"></div>
+      </div>
+
+      <div class="container post-hero__conteudo">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb breadcrumb--light" aria-label="Trilha de navegação">
+          <ol role="list">
+            <li><a href="../index.html">Home</a></li>
+            <li aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+            <!-- ✏️ Substituir pelo título curto do post -->
+            <li aria-current="page">Controle de Qualidade</li>
+          </ol>
+        </nav>
+
+        <!-- ✏️ Badge de categoria — alterar data-categoria e texto conforme necessário -->
+        <span class="post__badge post__badge--hero">Microbiologia</span>
+
+        <!-- ✏️ Título principal do artigo -->
+        <h1 id="post-titulo" class="post-hero__titulo">
+          Controle de Qualidade em Meios de Cultura: Boas Práticas para Laboratórios Clínicos
+        </h1>
+
+        <!-- Meta do post -->
+        <div class="post-hero__meta">
+          <div class="post-hero__autor">
+            <div class="autor__avatar" aria-hidden="true">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <div class="autor__info">
+              <!-- ✏️ Substituir pelo nome do autor, se houver -->
+              <span class="autor__nome">Equipe Brasil Científica</span>
+              <span class="autor__cargo">Suporte Técnico Especializado</span>
+            </div>
+          </div>
+          <div class="post-hero__dados">
+            <!-- ✏️ Atualizar data (datetime em ISO 8601 e texto visível) -->
+            <time datetime="2025-04-10" class="post__data">
+              <i class="fa-regular fa-calendar" aria-hidden="true"></i> 10 de abril de 2025
+            </time>
+            <!-- ✏️ Atualizar tempo estimado de leitura -->
+            <span class="post__leitura">
+              <i class="fa-regular fa-clock" aria-hidden="true"></i> 5 min de leitura
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         CORPO DO ARTIGO
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="post-layout container">
+
+      <!-- ── CONTEÚDO PRINCIPAL ── -->
+      <article class="post-conteudo" aria-label="Conteúdo do artigo">
+
+        <!-- Sumário / Índice -->
+        <nav class="post-sumario" aria-label="Índice do artigo">
+          <p class="post-sumario__titulo">
+            <i class="fa-solid fa-list" aria-hidden="true"></i> Neste artigo
+          </p>
+          <ol class="post-sumario__lista">
+            <!-- ✏️ Atualizar âncoras e títulos conforme as seções do artigo -->
+            <li><a href="#secao-1">Por que o controle de qualidade é essencial?</a></li>
+            <li><a href="#secao-2">Critérios de inspeção no recebimento</a></li>
+            <li><a href="#secao-3">Controles microbiológicos de desempenho</a></li>
+            <li><a href="#secao-4">Armazenamento e validade</a></li>
+            <li><a href="#secao-5">Descarte correto</a></li>
+            <li><a href="#secao-6">Conclusão</a></li>
+          </ol>
+        </nav>
+
+        <!-- ════════════════════════════════════════════════════
+             ✏️ CORPO DO ARTIGO — Substituir todo o conteúdo abaixo
+             Estrutura disponível: h2, h3, p, ul, ol, blockquote,
+             .post-destaque-info, .post-tabela, figure
+        ════════════════════════════════════════════════════════ -->
+
+        <p class="post-lead">
+          A qualidade dos meios de cultura é um dos pilares da microbiologia diagnóstica. Um meio inadequado pode comprometer o crescimento de microrganismos-alvo, gerar resultados falso-negativos e prejudicar diretamente o diagnóstico clínico. Por isso, o controle de qualidade deve ser uma rotina estruturada e documentada no laboratório.
+        </p>
+
+        <h2 id="secao-1">Por que o controle de qualidade é essencial?</h2>
+        <p>
+          Os meios de cultura são formulações complexas, compostas por nutrientes, inibidores, indicadores de pH e outros componentes que precisam estar em equilíbrio preciso para funcionar adequadamente. Qualquer variação — seja no transporte, armazenamento ou no próprio lote de fabricação — pode comprometer esse equilíbrio.
+        </p>
+        <p>
+          A RDC 302/2005 da ANVISA estabelece que os laboratórios clínicos devem manter programa de controle de qualidade interno e externo, incluindo o controle dos insumos utilizados. Os meios de cultura se enquadram diretamente nessa exigência.
+        </p>
+
+        <!-- Box de destaque informativo -->
+        <div class="post-destaque-info">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <div>
+            <strong>Atenção à RDC 302/2005</strong>
+            <p>A norma exige que laboratórios clínicos documentem todos os procedimentos de controle de qualidade de insumos, incluindo meios de cultura. Mantenha os registros atualizados e acessíveis durante auditorias.</p>
+          </div>
+        </div>
+
+        <h2 id="secao-2">Critérios de inspeção no recebimento</h2>
+        <p>
+          O controle de qualidade começa antes mesmo de o produto entrar no estoque. No recebimento, verifique obrigatoriamente:
+        </p>
+        <ul>
+          <li>Integridade da embalagem — sem sinais de amassados, vazamentos ou violação</li>
+          <li>Temperatura de transporte — especialmente para meios prontos refrigerados</li>
+          <li>Prazo de validade — recuse lotes com vencimento próximo que não serão utilizados a tempo</li>
+          <li>Número de lote e certificado de análise do fabricante</li>
+          <li>Cor e aspecto visual — meios prontos devem apresentar coloração e turbidez conforme especificação</li>
+        </ul>
+
+        <h2 id="secao-3">Controles microbiológicos de desempenho</h2>
+        <p>
+          Além da inspeção visual, os meios devem ser testados com cepas de referência padronizadas antes de entrarem em uso rotineiro. As cepas ATCC (American Type Culture Collection) são o padrão internacional, mas o laboratório pode usar também cepas de controle certificadas por órgãos nacionais.
+        </p>
+
+        <!-- Tabela de exemplo -->
+        <div class="post-tabela-wrapper" role="region" aria-label="Tabela de controles por meio de cultura" tabindex="0">
+          <table class="post-tabela">
+            <caption>Controles de desempenho recomendados — exemplos mais comuns</caption>
+            <thead>
+              <tr>
+                <th scope="col">Meio de Cultura</th>
+                <th scope="col">Cepa de Controle (+)</th>
+                <th scope="col">Cepa de Controle (−)</th>
+                <th scope="col">Resultado Esperado (+)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ágar MacConkey</td>
+                <td><em>Escherichia coli</em> ATCC 25922</td>
+                <td><em>Staphylococcus aureus</em> ATCC 25923</td>
+                <td>Crescimento com colônias rosa-avermelhadas</td>
+              </tr>
+              <tr>
+                <td>Ágar Sangue</td>
+                <td><em>Streptococcus pyogenes</em> ATCC 19615</td>
+                <td>—</td>
+                <td>Beta-hemólise evidente ao redor das colônias</td>
+              </tr>
+              <tr>
+                <td>Ágar Chocolate</td>
+                <td><em>Haemophilus influenzae</em> ATCC 10211</td>
+                <td><em>E. coli</em> ATCC 25922</td>
+                <td>Crescimento abundante; ausência em controle negativo</td>
+              </tr>
+              <tr>
+                <td>Caldo BHI</td>
+                <td><em>Staphylococcus aureus</em> ATCC 25923</td>
+                <td>—</td>
+                <td>Turvação visível após incubação</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="secao-4">Armazenamento e validade</h2>
+        <p>
+          Mesmo com o controle no recebimento e nos testes de desempenho, meios armazenados de forma inadequada podem se deteriorar antes do vencimento. As principais falhas de armazenamento que observamos em laboratórios são:
+        </p>
+        <ol>
+          <li><strong>Temperatura incorreta</strong> — meios prontos refrigerados expostos a temperatura ambiente por períodos prolongados durante o manuseio</li>
+          <li><strong>Desidratação</strong> — placas mantidas fora da embalagem original sem vedação adequada</li>
+          <li><strong>Exposição à luz</strong> — alguns meios seletivos têm componentes fotossensíveis</li>
+          <li><strong>Condensação</strong> — placas retiradas da geladeira sem tempo de equilíbrio à temperatura ambiente antes do uso</li>
+        </ol>
+
+        <!-- Blockquote de destaque -->
+        <blockquote class="post-citacao">
+          <p>O meio de cultura ideal é aquele que chega ao microrganismo nas melhores condições possíveis — da fabricação ao resultado.</p>
+          <cite>— Equipe Técnica Brasil Científica</cite>
+        </blockquote>
+
+        <h2 id="secao-5">Descarte correto</h2>
+        <p>
+          Meios de cultura utilizados, vencidos ou reprovados no controle de qualidade são resíduos biológicos do Grupo A (RDC 222/2018) e devem ser descartados em saco branco leitoso, autoclavados antes do descarte final ou encaminhados à empresa especializada em resíduos de serviços de saúde.
+        </p>
+
+        <h2 id="secao-6">Conclusão</h2>
+        <p>
+          Um programa estruturado de controle de qualidade em meios de cultura não é burocracia — é garantia de diagnóstico confiável. Investir nessa rotina protege os pacientes, os profissionais e a reputação do laboratório.
+        </p>
+        <p>
+          A Brasil Científica oferece suporte técnico especializado para auxiliar seu laboratório na implementação e documentação desses procedimentos. Entre em contato com nossa equipe para saber mais.
+        </p>
+
+        <!-- CTA interno -->
+        <div class="post-cta-interno">
+          <p>Precisa de meios de cultura com certificado de análise e suporte técnico?</p>
+          <a href="../index.html#contato" class="btn btn--secondary">
+            <i class="fa-solid fa-flask" aria-hidden="true"></i> Consultar portfólio
+          </a>
+          <a href="https://wa.me/5541999225335" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar no WhatsApp
+          </a>
+        </div>
+
+        <!-- Compartilhamento -->
+        <div class="post-compartilhar">
+          <p class="post-compartilhar__label">Compartilhar artigo:</p>
+          <div class="post-compartilhar__botoes">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.brasilcientifica.com%2Fposts%2Fcontrole-qualidade-meios-cultura.html"
+               target="_blank" rel="noopener noreferrer"
+               class="compartilhar__btn compartilhar__btn--linkedin"
+               aria-label="Compartilhar no LinkedIn (abre nova aba)">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+            </a>
+            <a href="https://wa.me/?text=Artigo%20da%20Brasil%20Cient%C3%ADfica%3A%20https%3A%2F%2Fwww.brasilcientifica.com%2Fposts%2Fcontrole-qualidade-meios-cultura.html"
+               target="_blank" rel="noopener noreferrer"
+               class="compartilhar__btn compartilhar__btn--whatsapp"
+               aria-label="Compartilhar no WhatsApp (abre nova aba)">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </article><!-- /post-conteudo -->
+
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="post-sidebar" aria-label="Conteúdo relacionado">
+
+        <!-- Card: Solicitar Orçamento -->
+        <div class="sidebar-card sidebar-card--cta">
+          <div class="sidebar-card__icone" aria-hidden="true">
+            <i class="fa-solid fa-flask"></i>
+          </div>
+          <h3 class="sidebar-card__titulo">Precisa de produtos?</h3>
+          <p class="sidebar-card__texto">Consulte nosso portfólio de meios de cultura e reagentes com suporte técnico incluso.</p>
+          <a href="../index.html#contato" class="btn btn--secondary btn--full">
+            Solicitar Orçamento
+          </a>
+          <a href="https://wa.me/5541999225335" class="btn btn--whatsapp btn--full" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+          </a>
+        </div>
+
+        <!-- Card: Outros artigos -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__titulo">
+            <i class="fa-solid fa-newspaper" aria-hidden="true"></i> Outros Artigos
+          </h3>
+          <ul class="sidebar-posts" role="list">
+            <li>
+              <a href="kits-diagnosticos-rapidos.html" class="sidebar-post__link">
+                <span class="sidebar-post__badge">Diagnóstico</span>
+                <span class="sidebar-post__titulo">Kits de Diagnóstico Rápido: Como Escolher o Produto Certo</span>
+              </a>
+            </li>
+            <li>
+              <a href="biosseguranca-laboratorio.html" class="sidebar-post__link">
+                <span class="sidebar-post__badge">Laboratório</span>
+                <span class="sidebar-post__titulo">Biossegurança no Laboratório Clínico em 2025</span>
+              </a>
+            </li>
+            <li>
+              <a href="antibiograma-tecnicas.html" class="sidebar-post__link">
+                <span class="sidebar-post__badge">Microbiologia</span>
+                <span class="sidebar-post__titulo">Antibiograma: Disco-Difusão vs. Microdiluição</span>
+              </a>
+            </li>
+          </ul>
+          <a href="../blog.html" class="sidebar-card__ver-todos">
+            Ver todos os artigos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- Card: Categorias -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__titulo">
+            <i class="fa-solid fa-tags" aria-hidden="true"></i> Categorias
+          </h3>
+          <ul class="sidebar-categorias" role="list">
+            <li><a href="../blog.html?categoria=microbiologia">Microbiologia</a></li>
+            <li><a href="../blog.html?categoria=diagnostico">Diagnóstico</a></li>
+            <li><a href="../blog.html?categoria=laboratorio">Laboratório</a></li>
+            <li><a href="../blog.html?categoria=novidades">Novidades</a></li>
+          </ul>
+        </div>
+
+      </aside><!-- /sidebar -->
+
+    </div><!-- /post-layout -->
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         POSTS RELACIONADOS
+    ══════════════════════════════════════════════════════════════ -->
+    <section class="section posts-relacionados" aria-labelledby="relacionados-titulo">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Continue Lendo</span>
+          <h2 id="relacionados-titulo" class="section__title">Artigos Relacionados</h2>
+        </header>
+
+        <div class="posts-grid posts-grid--3">
+
+          <article class="post-card animar-entrada" aria-labelledby="rel-1-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%"></div>
+                <span class="post__badge">Diagnóstico</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-03-22" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 22 de março de 2025
+                </time>
+              </div>
+              <h3 id="rel-1-titulo" class="post-card__titulo">
+                <a href="#">Kits de Diagnóstico Rápido: Como Escolher o Produto Certo</a>
+              </h3>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="post-card animar-entrada" aria-labelledby="rel-2-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%"></div>
+                <span class="post__badge">Laboratório</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-03-05" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 de março de 2025
+                </time>
+              </div>
+              <h3 id="rel-2-titulo" class="post-card__titulo">
+                <a href="#">Biossegurança no Laboratório Clínico: Normas em 2025</a>
+              </h3>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="post-card animar-entrada" aria-labelledby="rel-3-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%"></div>
+                <span class="post__badge">Microbiologia</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-02-18" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 18 de fevereiro de 2025
+                </time>
+              </div>
+              <h3 id="rel-3-titulo" class="post-card__titulo">
+                <a href="#">Antibiograma: Disco-Difusão vs. Microdiluição</a>
+              </h3>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top: var(--space-10)">
+          <a href="../blog.html" class="btn btn--outline">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao Blog
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer id="footer" role="contentinfo">
+
+    <div class="container footer__inner">
+
+      <div class="footer__coluna footer__coluna--empresa">
+        <a href="../index.html" class="footer__logo" aria-label="Brasil Científica — Voltar ao topo">
+          <img src="../images/logo/logo_header.png" alt="Brasil Científica">
+        </a>
+        <p class="footer__descricao">Excelência e confiança em soluções laboratoriais para o seu negócio.</p>
+        <nav class="footer__redes" aria-label="Redes sociais da Brasil Científica">
+          <a href="https://www.linkedin.com/company/brasil-cientifica---comercio-de-produtos-para-laboratorio/about/" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="LinkedIn (abre nova aba)"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/brasilcientifica" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="Instagram (abre nova aba)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/brasilcientifica" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="Facebook (abre nova aba)"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://wa.me/5541999225335" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="WhatsApp (abre nova aba)"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--links">
+        <h4 class="footer__titulo-coluna">Links Rápidos</h4>
+        <nav aria-label="Links rápidos do rodapé">
+          <ul class="footer__lista" role="list">
+            <li><a href="../index.html#home"     class="footer__link">Home</a></li>
+            <li><a href="../index.html#sobre"    class="footer__link">Sobre Nós</a></li>
+            <li><a href="../index.html#produtos" class="footer__link">Produtos</a></li>
+            <li><a href="../blog.html"           class="footer__link">Blog</a></li>
+            <li><a href="../index.html#contato"  class="footer__link">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--categorias">
+        <h4 class="footer__titulo-coluna">Produtos</h4>
+        <nav aria-label="Categorias de produtos no rodapé">
+          <ul class="footer__lista" role="list">
+            <li><a href="../index.html#portfolio-microbiologia" class="footer__link">Microbiologia</a></li>
+            <li><a href="../index.html#portfolio-diagnostico"   class="footer__link">Diagnóstico</a></li>
+            <li><a href="../index.html#portfolio-acessorios"    class="footer__link">Acessórios</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--contato">
+        <h4 class="footer__titulo-coluna">Contato</h4>
+        <address class="footer__endereco">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> R. Antônio Zielonka, 600 - Barracão 6<br />Estância Pinhais, Pinhais - PR<br />CEP: 83323-210</p>
+          <p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+554130337300" class="footer__link">(41) 3033-7300</a></p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:vendas1@brasilcientifica.com.br" class="footer__link">vendas1@brasilcientifica.com.br</a></p>
+          <p><i class="fa-solid fa-clock" aria-hidden="true"></i> Seg–Sex: 8h às 18h</p>
+        </address>
+        <div class="footer__certificacoes" aria-label="Certificações da Brasil Científica">
+          <span class="cert__badge">ANVISA</span>
+          <span class="cert__badge">VISA</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="anoAtual"></span> Brasil Científica. Todos os direitos reservados.</p>
+        <p class="footer__desenvolvido">Desenvolvido por <a href="#" class="footer__link">Savelly</a></p>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://wa.me/5541999225335?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Falar com a Brasil Científica pelo WhatsApp (abre nova aba)">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script src="../main.js" defer></script>
+  <script src="../blog.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SEO — Primário
+  ══════════════════════════════════════════════════════════════ -->
+  <title>Blog | Brasil Científica — Notícias e Artigos sobre Microbiologia e Laboratório</title>
+  <meta name="description" content="Artigos, novidades e informações técnicas sobre microbiologia, produtos laboratoriais e diagnóstico clínico. Conteúdo especializado pela equipe Brasil Científica." />
+  <meta name="author" content="Brasil Científica" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#2E4B6E" />
+  <link rel="canonical" href="https://www.brasilcientifica.com/blog.html" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SEO — Open Graph
+  ══════════════════════════════════════════════════════════════ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Brasil Científica" />
+  <meta property="og:locale"      content="pt_BR" />
+  <meta property="og:url"         content="https://www.brasilcientifica.com/blog.html" />
+  <meta property="og:title"       content="Blog Brasil Científica — Microbiologia e Laboratório" />
+  <meta property="og:description" content="Artigos técnicos, novidades e informações especializadas sobre microbiologia e produtos laboratoriais." />
+  <meta property="og:image"       content="https://www.brasilcientifica.com/images/og-cover.jpg" />
+
+  <!-- Schema.org — Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Brasil Científica",
+    "url": "https://www.brasilcientifica.com/blog.html",
+    "description": "Artigos técnicos sobre microbiologia, produtos laboratoriais e diagnóstico clínico.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Brasil Científica",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.brasilcientifica.com/images/logo.png"
+      }
+    },
+    "inLanguage": "pt-BR"
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PERFORMANCE — Favicons
+  ══════════════════════════════════════════════════════════════ -->
+  <link rel="icon"             href="images/favicon/favicon.ico" sizes="any" />
+  <link rel="icon"             href="images/favicon/favicon_32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/favicon/favicon_180x180.png" />
+  <link rel="manifest"         href="/site.webmanifest" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PERFORMANCE — DNS Prefetch & Preconnect
+  ══════════════════════════════════════════════════════════════ -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect"   href="https://fonts.googleapis.com" />
+  <link rel="preconnect"   href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        media="print"
+        onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </noscript>
+
+  <!-- CSS principal + Blog -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="blog.css" />
+
+</head>
+
+<body>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+
+  <!-- ============================================================
+       HEADER — idêntico ao index.html
+  ============================================================ -->
+  <header id="header" role="banner">
+    <div class="container header__inner">
+
+      <a href="index.html" class="header__logo" aria-label="Brasil Científica — Voltar à página inicial">
+        <img src="images/logo/logo_header.png" alt="Brasil Científica"/>
+      </a>
+
+      <button class="header__menu-toggle" id="menuToggle"
+              aria-controls="mainNav"
+              aria-expanded="false"
+              aria-label="Abrir menu de navegação"
+              type="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="header__nav" id="mainNav" aria-label="Menu principal">
+        <ul class="nav__list" role="list">
+          <li class="nav__item">
+            <a href="index.html#home" class="nav__link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="index.html#sobre" class="nav__link">Sobre</a>
+          </li>
+          <li class="nav__item nav__item--dropdown">
+            <a href="index.html#produtos" class="nav__link" aria-haspopup="true" aria-expanded="false">
+              Produtos <span class="nav__arrow" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav__dropdown" role="menu" aria-label="Categorias de produtos">
+              <li role="none"><a href="index.html#portfolio-microbiologia" role="menuitem">Microbiologia</a></li>
+              <li role="none"><a href="index.html#portfolio-diagnostico"   role="menuitem">Diagnóstico</a></li>
+              <li role="none"><a href="index.html#portfolio-acessorios"    role="menuitem">Acessórios</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a href="blog.html" class="nav__link nav__link--active" aria-current="page">Blog</a>
+          </li>
+          <li class="nav__item">
+            <a href="index.html#contato" class="nav__link nav__link--cta">Contato</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- ══════════════════════════════════════════════════════════
+         HERO DO BLOG
+    ══════════════════════════════════════════════════════════════ -->
+    <section class="blog-hero" aria-labelledby="blog-hero-title">
+      <div class="container blog-hero__inner">
+        <nav class="breadcrumb" aria-label="Trilha de navegação">
+          <ol role="list">
+            <li><a href="index.html">Home</a></li>
+            <li aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+            <li aria-current="page">Blog</li>
+          </ol>
+        </nav>
+        <span class="section__eyebrow">Conteúdo Especializado</span>
+        <h1 id="blog-hero-title" class="blog-hero__titulo">
+          Blog Brasil Científica
+        </h1>
+        <p class="blog-hero__descricao">
+          Artigos técnicos, novidades do setor e informações sobre microbiologia, diagnóstico clínico e produtos laboratoriais — produzidos pela nossa equipe especializada.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         GRID DE POSTS
+    ══════════════════════════════════════════════════════════════ -->
+    <section class="section blog-listagem" aria-labelledby="posts-titulo">
+      <div class="container">
+
+        <!-- Filtro por categoria -->
+        <div class="blog-filtros" role="group" aria-label="Filtrar por categoria">
+          <button class="blog-filtro blog-filtro--ativo" data-filtro="todos" type="button">Todos</button>
+          <button class="blog-filtro" data-filtro="microbiologia" type="button">Microbiologia</button>
+          <button class="blog-filtro" data-filtro="diagnostico" type="button">Diagnóstico</button>
+          <button class="blog-filtro" data-filtro="laboratorio" type="button">Laboratório</button>
+          <button class="blog-filtro" data-filtro="novidades" type="button">Novidades</button>
+        </div>
+
+        <!-- Post em destaque -->
+        <article class="post-destaque animar-entrada" data-categoria="microbiologia"
+                 aria-labelledby="post-destaque-titulo">
+          <a href="#" class="post-destaque__link" tabindex="-1" aria-hidden="true">
+            <div class="post-destaque__imagem">
+              <div class="image-placeholder" style="height:100%">
+                <!-- Substituir por: <img src="../images/blog/meios-cultura.webp" alt="Meios de cultura em laboratório"> -->
+              </div>
+              <span class="post__badge">Microbiologia</span>
+            </div>
+          </a>
+          <div class="post-destaque__conteudo">
+            <div class="post__meta">
+              <time datetime="2025-04-10" class="post__data">
+                <i class="fa-regular fa-calendar" aria-hidden="true"></i> 10 de abril de 2025
+              </time>
+              <span class="post__leitura">
+                <i class="fa-regular fa-clock" aria-hidden="true"></i> 5 min de leitura
+              </span>
+            </div>
+            <h2 id="post-destaque-titulo" class="post-destaque__titulo">
+              <a href="posts/post-template.html">
+                Controle de Qualidade em Meios de Cultura: Boas Práticas para Laboratórios Clínicos
+              </a>
+            </h2>
+            <p class="post-destaque__resumo">
+              A qualidade dos meios de cultura é um dos pilares da microbiologia diagnóstica. Neste artigo, apresentamos os principais critérios de controle de qualidade, desde o recebimento até o descarte correto, garantindo resultados confiáveis nas suas análises.
+            </p>
+            <a href="posts/post-template.html" class="btn btn--outline btn--sm">
+              Ler artigo completo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Grid de posts -->
+        <h2 id="posts-titulo" class="sr-only">Todos os artigos</h2>
+        <div class="posts-grid" role="list">
+
+          <!-- ── POST 1 ── -->
+          <article class="post-card animar-entrada" role="listitem" data-categoria="diagnostico"
+                   aria-labelledby="post-1-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%">
+                  <!-- <img src="../images/blog/kits-diagnosticos.webp" alt="Kits de diagnóstico rápido"> -->
+                </div>
+                <span class="post__badge">Diagnóstico</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-03-22" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 22 de março de 2025
+                </time>
+                <span class="post__leitura">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 4 min
+                </span>
+              </div>
+              <h3 id="post-1-titulo" class="post-card__titulo">
+                <a href="#">
+                  Kits de Diagnóstico Rápido: Como Escolher o Produto Certo para Seu Laboratório
+                </a>
+              </h3>
+              <p class="post-card__resumo">
+                Com tantas opções disponíveis, selecionar o kit adequado exige atenção à sensibilidade, especificidade e prazo de validade. Veja os principais critérios de seleção.
+              </p>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ── POST 2 ── -->
+          <article class="post-card animar-entrada" role="listitem" data-categoria="laboratorio"
+                   aria-labelledby="post-2-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%">
+                  <!-- <img src="../images/blog/biosseguranca.webp" alt="EPIs de biossegurança em laboratório"> -->
+                </div>
+                <span class="post__badge">Laboratório</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-03-05" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 de março de 2025
+                </time>
+                <span class="post__leitura">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 6 min
+                </span>
+              </div>
+              <h3 id="post-2-titulo" class="post-card__titulo">
+                <a href="#">
+                  Biossegurança no Laboratório Clínico: Normas e Equipamentos Essenciais em 2025
+                </a>
+              </h3>
+              <p class="post-card__resumo">
+                A RDC 302/2005 ainda orienta as boas práticas. Mas o que mudou nos últimos anos? Confira as atualizações sobre EPIs, descarte e procedimentos de segurança.
+              </p>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ── POST 3 ── -->
+          <article class="post-card animar-entrada" role="listitem" data-categoria="microbiologia"
+                   aria-labelledby="post-3-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%">
+                  <!-- <img src="../images/blog/antibiograma.webp" alt="Placa de antibiograma"> -->
+                </div>
+                <span class="post__badge">Microbiologia</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-02-18" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 18 de fevereiro de 2025
+                </time>
+                <span class="post__leitura">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 7 min
+                </span>
+              </div>
+              <h3 id="post-3-titulo" class="post-card__titulo">
+                <a href="#">
+                  Antibiograma: Disco-Difusão vs. Microdiluição — Qual Técnica Utilizar?
+                </a>
+              </h3>
+              <p class="post-card__resumo">
+                Comparativo completo entre as duas principais técnicas de antibiograma. Vantagens, limitações e indicações clínicas para cada método baseado nas diretrizes CLSI.
+              </p>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ── POST 4 ── -->
+          <article class="post-card animar-entrada" role="listitem" data-categoria="novidades"
+                   aria-labelledby="post-4-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%">
+                  <!-- <img src="../images/blog/portfolio-2025.webp" alt="Novos produtos no portfólio"> -->
+                </div>
+                <span class="post__badge post__badge--novidade">Novidades</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-01-30" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 30 de janeiro de 2025
+                </time>
+                <span class="post__leitura">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 3 min
+                </span>
+              </div>
+              <h3 id="post-4-titulo" class="post-card__titulo">
+                <a href="#">
+                  Novidades no Portfólio: Novos Produtos Disponíveis para 2025
+                </a>
+              </h3>
+              <p class="post-card__resumo">
+                Ampliamos nosso catálogo com novas linhas de reagentes e consumíveis. Confira os lançamentos disponíveis e entre em contato para consultar disponibilidade.
+              </p>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ── POST 5 ── -->
+          <article class="post-card animar-entrada" role="listitem" data-categoria="laboratorio"
+                   aria-labelledby="post-5-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%">
+                  <!-- <img src="../images/blog/armazenamento.webp" alt="Armazenamento correto de reagentes"> -->
+                </div>
+                <span class="post__badge">Laboratório</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2025-01-14" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 14 de janeiro de 2025
+                </time>
+                <span class="post__leitura">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 5 min
+                </span>
+              </div>
+              <h3 id="post-5-titulo" class="post-card__titulo">
+                <a href="#">
+                  Armazenamento Correto de Reagentes: Evite Perdas e Preserve a Qualidade
+                </a>
+              </h3>
+              <p class="post-card__resumo">
+                Temperatura, umidade e exposição à luz afetam diretamente a eficácia dos seus reagentes. Saiba como organizar seu almoxarifado para reduzir desperdícios.
+              </p>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ── POST 6 ── -->
+          <article class="post-card animar-entrada" role="listitem" data-categoria="diagnostico"
+                   aria-labelledby="post-6-titulo">
+            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+              <div class="post-card__imagem">
+                <div class="image-placeholder" style="height:100%">
+                  <!-- <img src="../images/blog/pcr.webp" alt="PCR em diagnóstico molecular"> -->
+                </div>
+                <span class="post__badge">Diagnóstico</span>
+              </div>
+            </a>
+            <div class="post-card__conteudo">
+              <div class="post__meta">
+                <time datetime="2024-12-10" class="post__data">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 10 de dezembro de 2024
+                </time>
+                <span class="post__leitura">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 8 min
+                </span>
+              </div>
+              <h3 id="post-6-titulo" class="post-card__titulo">
+                <a href="#">
+                  PCR em Tempo Real: Aplicações no Diagnóstico Molecular Laboratorial
+                </a>
+              </h3>
+              <p class="post-card__resumo">
+                O diagnóstico molecular avança rapidamente. Entenda como o PCR em tempo real está transformando a rotina dos laboratórios de análises clínicas no Brasil.
+              </p>
+              <a href="#" class="post-card__link">
+                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /posts-grid -->
+
+        <!-- Mensagem quando nenhum post corresponde ao filtro -->
+        <p class="blog-sem-resultados" id="semResultados" aria-live="polite" hidden>
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          Nenhum artigo encontrado nesta categoria.
+        </p>
+
+        <!-- Paginação (preparado para uso futuro) -->
+        <nav class="blog-paginacao" aria-label="Paginação dos artigos">
+          <button class="paginacao__btn paginacao__btn--anterior" disabled aria-label="Página anterior">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i> Anterior
+          </button>
+          <span class="paginacao__paginas">
+            <button class="paginacao__num paginacao__num--ativo" aria-current="page" aria-label="Página 1">1</button>
+            <button class="paginacao__num" aria-label="Página 2">2</button>
+            <button class="paginacao__num" aria-label="Página 3">3</button>
+          </span>
+          <button class="paginacao__btn paginacao__btn--proximo" aria-label="Próxima página">
+            Próxima <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </nav>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         CTA — igual ao index.html
+    ══════════════════════════════════════════════════════════════ -->
+    <section class="section section--cta" aria-labelledby="blog-cta-title">
+      <div class="container">
+        <div class="cta__inner">
+          <div class="cta__texto">
+            <h2 id="blog-cta-title" class="cta__title">Precisa de produtos para o seu laboratório?</h2>
+            <p class="cta__descricao">Fale com nossa equipe e receba uma proposta sob medida para o seu laboratório.</p>
+          </div>
+          <div class="cta__acoes">
+            <a href="index.html#contato" class="btn btn--secondary btn--large">
+              <i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Solicitar Orçamento
+            </a>
+            <a href="https://wa.me/5541999225335"
+               class="btn btn--whatsapp btn--large"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Falar pelo WhatsApp (abre nova aba)">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER — idêntico ao index.html
+  ============================================================ -->
+  <footer id="footer" role="contentinfo">
+
+    <div class="container footer__inner">
+
+      <div class="footer__coluna footer__coluna--empresa">
+        <a href="index.html" class="footer__logo" aria-label="Brasil Científica — Voltar ao topo">
+          <img src="images/logo/logo_header.png" alt="Brasil Científica">
+        </a>
+        <p class="footer__descricao">Excelência e confiança em soluções laboratoriais para o seu negócio.</p>
+        <nav class="footer__redes" aria-label="Redes sociais da Brasil Científica">
+          <a href="https://www.linkedin.com/company/brasil-cientifica---comercio-de-produtos-para-laboratorio/about/" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="LinkedIn (abre nova aba)">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/brasilcientifica" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="Instagram (abre nova aba)">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/brasilcientifica" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="Facebook (abre nova aba)">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/5541999225335" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="WhatsApp (abre nova aba)">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--links">
+        <h4 class="footer__titulo-coluna">Links Rápidos</h4>
+        <nav aria-label="Links rápidos do rodapé">
+          <ul class="footer__lista" role="list">
+            <li><a href="index.html#home"     class="footer__link">Home</a></li>
+            <li><a href="index.html#sobre"    class="footer__link">Sobre Nós</a></li>
+            <li><a href="index.html#produtos" class="footer__link">Produtos</a></li>
+            <li><a href="blog.html"           class="footer__link">Blog</a></li>
+            <li><a href="index.html#contato"  class="footer__link">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--categorias">
+        <h4 class="footer__titulo-coluna">Produtos</h4>
+        <nav aria-label="Categorias de produtos no rodapé">
+          <ul class="footer__lista" role="list">
+            <li><a href="index.html#portfolio-microbiologia" class="footer__link">Microbiologia</a></li>
+            <li><a href="index.html#portfolio-diagnostico"   class="footer__link">Diagnóstico</a></li>
+            <li><a href="index.html#portfolio-acessorios"    class="footer__link">Acessórios</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--contato">
+        <h4 class="footer__titulo-coluna">Contato</h4>
+        <address class="footer__endereco">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> R. Antônio Zielonka, 600 - Barracão 6<br />Estância Pinhais, Pinhais - PR<br />CEP: 83323-210</p>
+          <p><i class="fa-solid fa-phone"        aria-hidden="true"></i> <a href="tel:+554130337300" class="footer__link">(41) 3033-7300</a></p>
+          <p><i class="fa-solid fa-envelope"     aria-hidden="true"></i> <a href="mailto:vendas1@brasilcientifica.com.br" class="footer__link">vendas1@brasilcientifica.com.br</a></p>
+          <p><i class="fa-solid fa-clock"        aria-hidden="true"></i> Seg–Sex: 8h às 18h</p>
+        </address>
+        <div class="footer__certificacoes" aria-label="Certificações da Brasil Científica">
+          <span class="cert__badge">ANVISA</span>
+          <span class="cert__badge">VISA</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="anoAtual"></span> Brasil Científica. Todos os direitos reservados.</p>
+        <p class="footer__desenvolvido">Desenvolvido por <a href="#" class="footer__link">Savelly</a></p>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://wa.me/5541999225335?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Falar com a Brasil Científica pelo WhatsApp (abre nova aba)">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script src="main.js" defer></script>
+  <script src="blog.js" defer></script>
+
+</body>
+</html>

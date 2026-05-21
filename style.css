@@ -1962,6 +1962,83 @@ address { font-style: normal; }
 
 
 /* ============================================================
+   BLOG CTA — Seção de chamada para o blog (index.html)
+   ============================================================ */
+.section--blog-cta {
+  background: var(--cinza-50);
+  border-top: 1px solid var(--cinza-200);
+  padding-block: var(--space-16);
+}
+
+.blog-cta-home__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-12);
+  box-shadow: var(--sombra-md);
+}
+
+.blog-cta-home__icone {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-clara) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  font-size: var(--text-2xl);
+  flex-shrink: 0;
+}
+
+.blog-cta-home__texto {
+  flex: 1;
+}
+
+.blog-cta-home__titulo {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--texto-principal);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.blog-cta-home__descricao {
+  font-size: var(--text-base);
+  color: var(--texto-suave);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .blog-cta-home__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-8);
+    gap: var(--space-6);
+  }
+
+  .blog-cta-home__titulo {
+    font-size: var(--text-xl);
+  }
+
+  .blog-cta-home__inner .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-cta-home__inner {
+    padding: var(--space-6);
+  }
+}
+
+
+/* ============================================================
    18. RESPONSIVIDADE COMPLEMENTAR
    Breakpoints adicionais e refinamentos que complementam
    a seção 17 (overflow, touch targets, wide desktop, 900px).
@@ -2123,7 +2200,15 @@ object {
   /* CTA compacto */
   .section--cta { padding-block: var(--space-10); }
   .cta__title   { font-size: var(--text-xl); }
-  .cta__acoes .btn { padding: 0.75rem 1rem; }
+  .cta__texto   { min-width: 0; width: 100%; }
+  .cta__inner   { gap: var(--space-6); }
+  .cta__acoes   { flex-direction: column; width: 100%; }
+  .cta__acoes .btn {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    justify-content: center;
+    font-size: var(--text-sm);
+  }
 
   /* MVV compacto */
   .mvv__card    { padding: var(--space-4); }
