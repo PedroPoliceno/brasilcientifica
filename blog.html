@@ -82,6 +82,39 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="blog.css" />
 
+  <!-- Estado: sem posts publicados -->
+  <style>
+    .blog-em-breve {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem 5rem;
+      gap: 1rem;
+      color: var(--text-muted, #6b7280);
+    }
+    .blog-em-breve > i {
+      font-size: 3rem;
+      color: var(--cor-teal, #4CBFAD);
+      opacity: .7;
+      margin-bottom: .5rem;
+    }
+    .blog-em-breve__titulo {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      font-size: var(--text-2xl, 1.5rem);
+      font-weight: 700;
+      color: var(--cor-navy, #2E4B6E);
+      margin: 0;
+    }
+    .blog-em-breve__texto {
+      max-width: 48ch;
+      font-size: var(--text-base, 1rem);
+      line-height: 1.7;
+      margin: 0;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -181,248 +214,18 @@
           <button class="blog-filtro" data-filtro="novidades" type="button">Novidades</button>
         </div>
 
-        <!-- Post em destaque -->
-        <article class="post-destaque animar-entrada" data-categoria="microbiologia"
-                 aria-labelledby="post-destaque-titulo">
-          <a href="#" class="post-destaque__link" tabindex="-1" aria-hidden="true">
-            <div class="post-destaque__imagem">
-              <div class="image-placeholder" style="height:100%">
-                <!-- Substituir por: <img src="../images/blog/meios-cultura.webp" alt="Meios de cultura em laboratório"> -->
-              </div>
-              <span class="post__badge">Microbiologia</span>
-            </div>
-          </a>
-          <div class="post-destaque__conteudo">
-            <div class="post__meta">
-              <time datetime="2025-04-10" class="post__data">
-                <i class="fa-regular fa-calendar" aria-hidden="true"></i> 10 de abril de 2025
-              </time>
-              <span class="post__leitura">
-                <i class="fa-regular fa-clock" aria-hidden="true"></i> 5 min de leitura
-              </span>
-            </div>
-            <h2 id="post-destaque-titulo" class="post-destaque__titulo">
-              <a href="posts/post-template.html">
-                Controle de Qualidade em Meios de Cultura: Boas Práticas para Laboratórios Clínicos
-              </a>
-            </h2>
-            <p class="post-destaque__resumo">
-              A qualidade dos meios de cultura é um dos pilares da microbiologia diagnóstica. Neste artigo, apresentamos os principais critérios de controle de qualidade, desde o recebimento até o descarte correto, garantindo resultados confiáveis nas suas análises.
-            </p>
-            <a href="posts/post-template.html" class="btn btn--outline btn--sm">
-              Ler artigo completo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </article>
+        <!-- Mensagem de em breve -->
+        <div class="blog-em-breve animar-entrada" role="status" aria-live="polite">
+          <i class="fa-regular fa-newspaper" aria-hidden="true"></i>
+          <h2 class="blog-em-breve__titulo">Em breve, novidades por aqui</h2>
+          <p class="blog-em-breve__texto">
+            Estamos preparando conteúdos especializados em microbiologia, diagnóstico clínico e boas práticas laboratoriais. Volte em breve para conferir nossos primeiros artigos.
+          </p>
+        </div>
 
-        <!-- Grid de posts -->
+        <!-- Grid de posts (vazio — pronto para receber conteúdo) -->
         <h2 id="posts-titulo" class="sr-only">Todos os artigos</h2>
         <div class="posts-grid" role="list">
-
-          <!-- ── POST 1 ── -->
-          <article class="post-card animar-entrada" role="listitem" data-categoria="diagnostico"
-                   aria-labelledby="post-1-titulo">
-            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
-              <div class="post-card__imagem">
-                <div class="image-placeholder" style="height:100%">
-                  <!-- <img src="../images/blog/kits-diagnosticos.webp" alt="Kits de diagnóstico rápido"> -->
-                </div>
-                <span class="post__badge">Diagnóstico</span>
-              </div>
-            </a>
-            <div class="post-card__conteudo">
-              <div class="post__meta">
-                <time datetime="2025-03-22" class="post__data">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 22 de março de 2025
-                </time>
-                <span class="post__leitura">
-                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 4 min
-                </span>
-              </div>
-              <h3 id="post-1-titulo" class="post-card__titulo">
-                <a href="#">
-                  Kits de Diagnóstico Rápido: Como Escolher o Produto Certo para Seu Laboratório
-                </a>
-              </h3>
-              <p class="post-card__resumo">
-                Com tantas opções disponíveis, selecionar o kit adequado exige atenção à sensibilidade, especificidade e prazo de validade. Veja os principais critérios de seleção.
-              </p>
-              <a href="#" class="post-card__link">
-                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- ── POST 2 ── -->
-          <article class="post-card animar-entrada" role="listitem" data-categoria="laboratorio"
-                   aria-labelledby="post-2-titulo">
-            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
-              <div class="post-card__imagem">
-                <div class="image-placeholder" style="height:100%">
-                  <!-- <img src="../images/blog/biosseguranca.webp" alt="EPIs de biossegurança em laboratório"> -->
-                </div>
-                <span class="post__badge">Laboratório</span>
-              </div>
-            </a>
-            <div class="post-card__conteudo">
-              <div class="post__meta">
-                <time datetime="2025-03-05" class="post__data">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 de março de 2025
-                </time>
-                <span class="post__leitura">
-                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 6 min
-                </span>
-              </div>
-              <h3 id="post-2-titulo" class="post-card__titulo">
-                <a href="#">
-                  Biossegurança no Laboratório Clínico: Normas e Equipamentos Essenciais em 2025
-                </a>
-              </h3>
-              <p class="post-card__resumo">
-                A RDC 302/2005 ainda orienta as boas práticas. Mas o que mudou nos últimos anos? Confira as atualizações sobre EPIs, descarte e procedimentos de segurança.
-              </p>
-              <a href="#" class="post-card__link">
-                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- ── POST 3 ── -->
-          <article class="post-card animar-entrada" role="listitem" data-categoria="microbiologia"
-                   aria-labelledby="post-3-titulo">
-            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
-              <div class="post-card__imagem">
-                <div class="image-placeholder" style="height:100%">
-                  <!-- <img src="../images/blog/antibiograma.webp" alt="Placa de antibiograma"> -->
-                </div>
-                <span class="post__badge">Microbiologia</span>
-              </div>
-            </a>
-            <div class="post-card__conteudo">
-              <div class="post__meta">
-                <time datetime="2025-02-18" class="post__data">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 18 de fevereiro de 2025
-                </time>
-                <span class="post__leitura">
-                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 7 min
-                </span>
-              </div>
-              <h3 id="post-3-titulo" class="post-card__titulo">
-                <a href="#">
-                  Antibiograma: Disco-Difusão vs. Microdiluição — Qual Técnica Utilizar?
-                </a>
-              </h3>
-              <p class="post-card__resumo">
-                Comparativo completo entre as duas principais técnicas de antibiograma. Vantagens, limitações e indicações clínicas para cada método baseado nas diretrizes CLSI.
-              </p>
-              <a href="#" class="post-card__link">
-                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- ── POST 4 ── -->
-          <article class="post-card animar-entrada" role="listitem" data-categoria="novidades"
-                   aria-labelledby="post-4-titulo">
-            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
-              <div class="post-card__imagem">
-                <div class="image-placeholder" style="height:100%">
-                  <!-- <img src="../images/blog/portfolio-2025.webp" alt="Novos produtos no portfólio"> -->
-                </div>
-                <span class="post__badge post__badge--novidade">Novidades</span>
-              </div>
-            </a>
-            <div class="post-card__conteudo">
-              <div class="post__meta">
-                <time datetime="2025-01-30" class="post__data">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 30 de janeiro de 2025
-                </time>
-                <span class="post__leitura">
-                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 3 min
-                </span>
-              </div>
-              <h3 id="post-4-titulo" class="post-card__titulo">
-                <a href="#">
-                  Novidades no Portfólio: Novos Produtos Disponíveis para 2025
-                </a>
-              </h3>
-              <p class="post-card__resumo">
-                Ampliamos nosso catálogo com novas linhas de reagentes e consumíveis. Confira os lançamentos disponíveis e entre em contato para consultar disponibilidade.
-              </p>
-              <a href="#" class="post-card__link">
-                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- ── POST 5 ── -->
-          <article class="post-card animar-entrada" role="listitem" data-categoria="laboratorio"
-                   aria-labelledby="post-5-titulo">
-            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
-              <div class="post-card__imagem">
-                <div class="image-placeholder" style="height:100%">
-                  <!-- <img src="../images/blog/armazenamento.webp" alt="Armazenamento correto de reagentes"> -->
-                </div>
-                <span class="post__badge">Laboratório</span>
-              </div>
-            </a>
-            <div class="post-card__conteudo">
-              <div class="post__meta">
-                <time datetime="2025-01-14" class="post__data">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 14 de janeiro de 2025
-                </time>
-                <span class="post__leitura">
-                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 5 min
-                </span>
-              </div>
-              <h3 id="post-5-titulo" class="post-card__titulo">
-                <a href="#">
-                  Armazenamento Correto de Reagentes: Evite Perdas e Preserve a Qualidade
-                </a>
-              </h3>
-              <p class="post-card__resumo">
-                Temperatura, umidade e exposição à luz afetam diretamente a eficácia dos seus reagentes. Saiba como organizar seu almoxarifado para reduzir desperdícios.
-              </p>
-              <a href="#" class="post-card__link">
-                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- ── POST 6 ── -->
-          <article class="post-card animar-entrada" role="listitem" data-categoria="diagnostico"
-                   aria-labelledby="post-6-titulo">
-            <a href="#" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
-              <div class="post-card__imagem">
-                <div class="image-placeholder" style="height:100%">
-                  <!-- <img src="../images/blog/pcr.webp" alt="PCR em diagnóstico molecular"> -->
-                </div>
-                <span class="post__badge">Diagnóstico</span>
-              </div>
-            </a>
-            <div class="post-card__conteudo">
-              <div class="post__meta">
-                <time datetime="2024-12-10" class="post__data">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i> 10 de dezembro de 2024
-                </time>
-                <span class="post__leitura">
-                  <i class="fa-regular fa-clock" aria-hidden="true"></i> 8 min
-                </span>
-              </div>
-              <h3 id="post-6-titulo" class="post-card__titulo">
-                <a href="#">
-                  PCR em Tempo Real: Aplicações no Diagnóstico Molecular Laboratorial
-                </a>
-              </h3>
-              <p class="post-card__resumo">
-                O diagnóstico molecular avança rapidamente. Entenda como o PCR em tempo real está transformando a rotina dos laboratórios de análises clínicas no Brasil.
-              </p>
-              <a href="#" class="post-card__link">
-                Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
         </div><!-- /posts-grid -->
 
         <!-- Mensagem quando nenhum post corresponde ao filtro -->
