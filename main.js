@@ -25,8 +25,92 @@ function sanitize(str) {
 
 
 /* ============================================================
-   ANO NO RODAPÉ
+   CARROSSEL DE FOTOS NOS CARDS DE PRODUTO
 ============================================================ */
+(function initCarrosselProdutos() {
+  const carrosseis = $$('.produto__carrossel');
+  if (!carrosseis.length) return;
+
+  carrosseis.forEach(function (carrossel) {
+    const faixa  = carrossel.querySelector('.carrossel__faixa');
+    const slides = carrossel.querySelectorAll('.carrossel__slide');
+    const btnPrev = carrossel.querySelector('.carrossel__btn--prev');
+    const btnNext = carrossel.querySelector('.carrossel__btn--next');
+    const dots    = carrossel.querySelectorAll('.carrossel__dot');
+    const total   = slides.length;
+
+    if (total <= 1) {
+      // Esconde controles se só tiver uma foto
+      if (btnPrev) btnPrev.hidden = true;
+      if (btnNext) btnNext.hidden = true;
+      const dotsWrap = carrossel.querySelector('.carrossel__dots');
+      if (dotsWrap) dotsWrap.hidden = true;
+      return;
+    }
+
+    let atual = 0;
+
+    function ir(indice) {
+      atual = (indice + total) % total; // loop circular
+      faixa.style.transform = `translateX(-${atual * 100}%)`;
+
+      // Atualiza dots
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('carrossel__dot--ativo', i === atual);
+      });
+
+      // Atualiza estado dos botões (sem loop: desabilita nas pontas)
+      // Com loop circular, ambos sempre habilitados
+      if (btnPrev) btnPrev.disabled = false;
+      if (btnNext) btnNext.disabled = false;
+    }
+
+    if (btnPrev) {
+      btnPrev.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation(); // evita acionar links do card
+        ir(atual - 1);
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        ir(atual + 1);
+      });
+    }
+
+    // Dots clicáveis
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function (e) {
+        e.stopPropagation();
+        ir(i);
+      });
+    });
+
+    // Swipe touch (mobile)
+    let touchStartX = 0;
+    let touchDelta  = 0;
+
+    carrossel.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carrossel.addEventListener('touchend', function (e) {
+      touchDelta = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(touchDelta) > 40) {
+        ir(touchDelta < 0 ? atual + 1 : atual - 1);
+      }
+    }, { passive: true });
+
+    // Estado inicial
+    ir(0);
+  });
+})();
+
+
+
 (function initAno() {
   const el = $('#anoAtual');
   if (el) el.textContent = new Date().getFullYear();

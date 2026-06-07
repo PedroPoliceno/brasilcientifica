@@ -917,6 +917,140 @@ address { font-style: normal; }
 
 .produto__acoes { margin-top: auto; padding-top: var(--space-2); }
 
+/* ── Carrossel de fotos nos cards ── */
+.produto__carrossel {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  border-bottom: 1px solid var(--cinza-200);
+}
+
+.carrossel__faixa {
+  display: flex;
+  height: 100%;
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carrossel__slide {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--cinza-100) 0%, var(--cor-acento-bg) 100%);
+}
+
+.carrossel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
+}
+
+.produto__card:hover .carrossel__slide img {
+  transform: scale(1.04);
+}
+
+/* Botões de navegação */
+.carrossel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--cor-primaria);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: var(--sombra-md);
+  transition:
+    opacity var(--transicao-normal),
+    background var(--transicao-normal),
+    transform var(--transicao-mola);
+  z-index: 2;
+  /* Ocultos por padrão no desktop, aparecem no hover */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carrossel__btn--prev { left: var(--space-2); }
+.carrossel__btn--next { right: var(--space-2); }
+
+/* Desktop: aparece ao hover no card */
+@media (hover: hover) {
+  .produto__card:hover .carrossel__btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .carrossel__btn:hover {
+    background: var(--cor-primaria);
+    color: var(--branco);
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+
+/* Touch/mobile: sempre visíveis */
+@media (hover: none) {
+  .carrossel__btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Botão desabilitado (primeira/última foto sem loop) */
+.carrossel__btn:disabled {
+  opacity: 0.25 !important;
+  pointer-events: none;
+}
+
+/* Dots indicadores */
+.carrossel__dots {
+  position: absolute;
+  bottom: var(--space-2);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+
+.carrossel__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.55);
+  transition: background var(--transicao-normal), width var(--transicao-normal);
+}
+
+.carrossel__dot--ativo {
+  background: var(--branco);
+  width: 16px;
+}
+
+/* Contador de slides (ex: "1 / 3") — opcional, não renderizado por padrão */
+.carrossel__contador {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-3);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--branco);
+  background: rgba(30, 51, 80, 0.55);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  z-index: 2;
+  letter-spacing: 0.05em;
+}
+
+
+
 /* Rodapé da seção */
 .produtos__footer {
   text-align: center;
@@ -2190,7 +2324,7 @@ object {
   .stat__label  { font-size: 0.65rem; }
 
   /* Cards de produto mais compactos */
-  .produto__card .produto__imagem .image-placeholder { height: 140px; }
+
   .produto__info { padding: var(--space-4); }
 
   /* Botões padrão menores */
