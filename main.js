@@ -128,6 +128,10 @@ function sanitize(str) {
   function fecharMenu() {
     toggle.setAttribute('aria-expanded', 'false');
     nav.classList.remove('header__nav--aberto');
+    // Fecha também qualquer dropdown aberto dentro do menu
+    $$('.nav__item--dropdown--aberto', nav).forEach(function (item) {
+      item.classList.remove('nav__item--dropdown--aberto');
+    });
   }
 
   toggle.addEventListener('click', function () {
@@ -136,8 +140,8 @@ function sanitize(str) {
     nav.classList.toggle('header__nav--aberto', !aberto);
   });
 
-  // Fecha ao clicar em qualquer link da nav
-  $$('.nav__link', nav).forEach(link =>
+  // Fecha ao clicar em qualquer link da nav (incluindo itens do dropdown)
+  $$('.nav__link, .nav__dropdown__link', nav).forEach(link =>
     link.addEventListener('click', fecharMenu)
   );
 
