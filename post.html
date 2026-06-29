@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO — preenchido dinamicamente via JS -->
+  <title>Carregando artigo… | Blog Brasil Científica</title>
+  <meta name="description" content="" />
+  <meta name="author"      content="Brasil Científica" />
+  <meta name="robots"      content="index, follow" />
+  <meta name="theme-color" content="#2E4B6E" />
+  <link rel="canonical"    href="" id="canonical" />
+
+  <!-- Open Graph — preenchido dinamicamente -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Brasil Científica" />
+  <meta property="og:locale"      content="pt_BR" />
+  <meta property="og:url"         content="" id="og-url" />
+  <meta property="og:title"       content="" id="og-title" />
+  <meta property="og:description" content="" id="og-description" />
+  <meta property="og:image"       content="" id="og-image" />
+
+  <!-- Favicons -->
+  <link rel="icon"             href="images/favicon/favicon.ico" sizes="any" />
+  <link rel="icon"             href="images/favicon/favicon_32x32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/favicon/favicon_180x180.png" />
+  <link rel="manifest"         href="/site.webmanifest" />
+
+  <!-- Preconnect -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect"   href="https://fonts.googleapis.com" />
+  <link rel="preconnect"   href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+        media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </noscript>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="blog.css" />
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header id="header" role="banner">
+    <div class="container header__inner">
+
+      <a href="index.html" class="header__logo" aria-label="Brasil Científica — Voltar à página inicial">
+        <img src="images/logo/logo_header.png" alt="Brasil Científica" />
+      </a>
+
+      <button class="header__menu-toggle" id="menuToggle"
+              aria-controls="mainNav" aria-expanded="false"
+              aria-label="Abrir menu de navegação" type="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="header__nav" id="mainNav" aria-label="Menu principal">
+        <ul class="nav__list" role="list">
+          <li class="nav__item"><a href="index.html#home"    class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="index.html#sobre"   class="nav__link">Sobre</a></li>
+          <li class="nav__item nav__item--dropdown">
+            <a href="index.html#produtos" class="nav__link" aria-haspopup="true" aria-expanded="false">
+              Produtos <span class="nav__arrow" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav__dropdown" role="menu" aria-label="Categorias de produtos">
+              <li role="none"><a href="index.html#portfolio-microbiologia" role="menuitem">Microbiologia</a></li>
+              <li role="none"><a href="index.html#portfolio-diagnostico"   role="menuitem">Diagnóstico</a></li>
+              <li role="none"><a href="index.html#portfolio-acessorios"    role="menuitem">Acessórios</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="blog.html" class="nav__link nav__link--active" aria-current="page">Blog</a></li>
+          <li class="nav__item"><a href="index.html#contato" class="nav__link nav__link--cta">Contato</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- ══════════════════════════════════════════════════════════
+         ESTADO: Carregando
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="post-loading" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 2rem;gap:1rem;color:var(--text-muted,#6b7280)">
+      <i class="fa-solid fa-circle-notch fa-spin fa-2x" style="color:var(--cor-teal,#4CBFAD)" aria-hidden="true"></i>
+      <p style="font-family:var(--font-heading,'Outfit',sans-serif);font-size:1.1rem">Carregando artigo…</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         ESTADO: Post não encontrado
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="post-erro" hidden style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem;gap:1rem">
+      <i class="fa-regular fa-file-circle-xmark fa-3x" style="color:var(--cor-teal,#4CBFAD);opacity:.7" aria-hidden="true"></i>
+      <h1 style="font-family:var(--font-heading,'Outfit',sans-serif);font-size:1.75rem;color:var(--cor-navy,#2E4B6E)">Artigo não encontrado</h1>
+      <p style="max-width:44ch;color:var(--text-muted,#6b7280)">O artigo que você procura não existe ou foi removido.</p>
+      <a href="blog.html" class="btn btn--secondary" style="margin-top:.5rem">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao Blog
+      </a>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         CONTEÚDO DO POST — injetado via JS
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="post-conteudo" hidden>
+
+      <!-- Hero do post -->
+      <section class="post-hero" aria-labelledby="post-titulo">
+        <div class="post-hero__capa" aria-hidden="true">
+          <img id="post-capa-img" src="" alt="" loading="eager" fetchpriority="high" decoding="async"
+               style="width:100%;height:100%;object-fit:cover" />
+          <div class="post-hero__overlay"></div>
+        </div>
+
+        <div class="container post-hero__conteudo">
+          <nav class="breadcrumb breadcrumb--light" aria-label="Trilha de navegação">
+            <ol role="list">
+              <li><a href="index.html">Home</a></li>
+              <li aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+              <li aria-current="page" id="post-breadcrumb-titulo">…</li>
+            </ol>
+          </nav>
+
+          <span class="post__badge post__badge--hero" id="post-badge-categoria"></span>
+
+          <h1 id="post-titulo" class="post-hero__titulo"></h1>
+
+          <div class="post-hero__meta">
+            <div class="post-hero__autor">
+              <div class="autor__avatar" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
+              <div class="autor__info">
+                <span class="autor__nome">Equipe Brasil Científica</span>
+                <span class="autor__cargo">Suporte Técnico Especializado</span>
+              </div>
+            </div>
+            <div class="post-hero__dados">
+              <time id="post-data" class="post__data">
+                <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+              </time>
+              <span id="post-leitura" class="post__leitura" hidden>
+                <i class="fa-regular fa-clock" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Layout principal: artigo + sidebar -->
+      <div class="post-layout container">
+
+        <article class="post-conteudo" aria-label="Conteúdo do artigo">
+          <!-- Conteúdo HTML do post injetado aqui -->
+          <div id="post-body"></div>
+
+          <!-- Compartilhamento -->
+          <div class="post-compartilhar">
+            <p class="post-compartilhar__label">Compartilhar artigo:</p>
+            <div class="post-compartilhar__botoes">
+              <a id="compartilhar-linkedin" href="#" target="_blank" rel="noopener noreferrer"
+                 class="compartilhar__btn compartilhar__btn--linkedin"
+                 aria-label="Compartilhar no LinkedIn (abre nova aba)">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+              </a>
+              <a id="compartilhar-whatsapp" href="#" target="_blank" rel="noopener noreferrer"
+                 class="compartilhar__btn compartilhar__btn--whatsapp"
+                 aria-label="Compartilhar no WhatsApp (abre nova aba)">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="post-sidebar" aria-label="Conteúdo relacionado">
+
+          <div class="sidebar-card sidebar-card--cta">
+            <div class="sidebar-card__icone" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
+            <h3 class="sidebar-card__titulo">Precisa de produtos?</h3>
+            <p class="sidebar-card__texto">Consulte nosso portfólio com suporte técnico incluso.</p>
+            <a href="index.html#contato" class="btn btn--secondary btn--full">Solicitar Orçamento</a>
+            <a href="https://wa.me/5541999225335" class="btn btn--whatsapp btn--full"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+            </a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__titulo">
+              <i class="fa-solid fa-tags" aria-hidden="true"></i> Categorias
+            </h3>
+            <ul class="sidebar-categorias" role="list">
+              <li><a href="blog.html?categoria=microbiologia">Microbiologia</a></li>
+              <li><a href="blog.html?categoria=diagnostico">Diagnóstico</a></li>
+              <li><a href="blog.html?categoria=laboratorio">Laboratório</a></li>
+              <li><a href="blog.html?categoria=novidades">Novidades</a></li>
+            </ul>
+          </div>
+
+        </aside>
+      </div>
+
+      <!-- Posts relacionados -->
+      <section class="section posts-relacionados" aria-labelledby="relacionados-titulo">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__eyebrow">Continue Lendo</span>
+            <h2 id="relacionados-titulo" class="section__title">Artigos Relacionados</h2>
+          </header>
+          <div id="posts-relacionados-grid" class="posts-grid posts-grid--3" role="list"></div>
+          <div style="text-align:center;margin-top:var(--space-10)">
+            <a href="blog.html" class="btn btn--outline">
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao Blog
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /post-conteudo -->
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container footer__inner">
+
+      <div class="footer__coluna footer__coluna--empresa">
+        <a href="index.html" class="footer__logo" aria-label="Brasil Científica — Voltar ao topo">
+          <img src="images/logo/logo_header.png" alt="Brasil Científica">
+        </a>
+        <p class="footer__descricao">Excelência e confiança em soluções laboratoriais para o seu negócio.</p>
+        <nav class="footer__redes" aria-label="Redes sociais da Brasil Científica">
+          <a href="https://www.linkedin.com/company/brasil-cientifica---comercio-de-produtos-para-laboratorio/about/" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="LinkedIn (abre nova aba)"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/brasilcientifica" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="Instagram (abre nova aba)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/brasilcientifica" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="Facebook (abre nova aba)"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://wa.me/5541999225335" target="_blank" rel="noopener noreferrer" class="rede__link" aria-label="WhatsApp (abre nova aba)"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--links">
+        <h4 class="footer__titulo-coluna">Links Rápidos</h4>
+        <nav aria-label="Links rápidos do rodapé">
+          <ul class="footer__lista" role="list">
+            <li><a href="index.html#home"     class="footer__link">Home</a></li>
+            <li><a href="index.html#sobre"    class="footer__link">Sobre Nós</a></li>
+            <li><a href="index.html#produtos" class="footer__link">Produtos</a></li>
+            <li><a href="blog.html"           class="footer__link">Blog</a></li>
+            <li><a href="index.html#contato"  class="footer__link">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--categorias">
+        <h4 class="footer__titulo-coluna">Produtos</h4>
+        <nav aria-label="Categorias de produtos no rodapé">
+          <ul class="footer__lista" role="list">
+            <li><a href="index.html#portfolio-microbiologia" class="footer__link">Microbiologia</a></li>
+            <li><a href="index.html#portfolio-diagnostico"   class="footer__link">Diagnóstico</a></li>
+            <li><a href="index.html#portfolio-acessorios"    class="footer__link">Acessórios</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__coluna footer__coluna--contato">
+        <h4 class="footer__titulo-coluna">Contato</h4>
+        <address class="footer__endereco">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> R. Antônio Zielonka, 600 - Barracão 6<br />Estância Pinhais, Pinhais - PR<br />CEP: 83323-210</p>
+          <p><i class="fa-solid fa-phone"        aria-hidden="true"></i> <a href="tel:+554130337300" class="footer__link">(41) 3033-7300</a></p>
+          <p><i class="fa-solid fa-envelope"     aria-hidden="true"></i> <a href="mailto:vendas1@brasilcientifica.com.br" class="footer__link">vendas1@brasilcientifica.com.br</a></p>
+          <p><i class="fa-solid fa-clock"        aria-hidden="true"></i> Seg–Sex: 8h às 18h</p>
+        </address>
+        <div class="footer__certificacoes" aria-label="Certificações da Brasil Científica">
+          <span class="cert__badge">ANVISA</span>
+          <span class="cert__badge">VISA</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="anoAtual"></span> Brasil Científica. Todos os direitos reservados.</p>
+        <p class="footer__desenvolvido">Desenvolvido por <a href="#" class="footer__link">Savelly</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5541999225335?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+     class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+     aria-label="Falar com a Brasil Científica pelo WhatsApp (abre nova aba)">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script src="main.js" defer></script>
+
+  <!-- post.js — carrega e renderiza o post dinamicamente -->
+  <script type="module">
+    import { db } from './firebase-config.js';
+    import {
+      collection, query, where,
+      orderBy, limit, getDocs, doc, getDoc,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    const BASE_URL = 'https://www.brasilcientifica.com'; // ✏️ ajuste se necessário
+
+    async function carregarPost() {
+      const params  = new URLSearchParams(window.location.search);
+      const slugOuId = params.get('id');
+
+      const elLoading  = document.getElementById('post-loading');
+      const elErro     = document.getElementById('post-erro');
+      const elConteudo = document.getElementById('post-conteudo');
+
+      if (!slugOuId) {
+        mostrar(elErro); ocultar(elLoading); return;
+      }
+
+      try {
+        /* Tenta buscar por slug primeiro, depois por doc ID */
+        let postData = null;
+
+        const q = query(
+          collection(db, 'posts'),
+          where('slug', '==', slugOuId),
+          where('publicado', '==', true),
+          limit(1)
+        );
+        const snap = await getDocs(q);
+
+        if (!snap.empty) {
+          postData = { id: snap.docs[0].id, ...snap.docs[0].data() };
+        } else {
+          const docSnap = await getDoc(doc(db, 'posts', slugOuId));
+          if (docSnap.exists() && docSnap.data().publicado) {
+            postData = { id: docSnap.id, ...docSnap.data() };
+          }
+        }
+
+        if (!postData) {
+          mostrar(elErro); ocultar(elLoading); return;
+        }
+
+        renderPost(postData);
+        await carregarRelacionados(postData);
+
+        ocultar(elLoading);
+        mostrar(elConteudo);
+
+        // Re-inicializa animações e progresso de leitura do blog.js
+        document.dispatchEvent(new Event('post-carregado'));
+
+      } catch (err) {
+        console.error('[Post] Erro ao carregar:', err);
+        mostrar(elErro); ocultar(elLoading);
+      }
+    }
+
+    function renderPost(post) {
+      const url       = `${BASE_URL}/post.html?id=${post.slug || post.id}`;
+      const dataISO   = post.dataCriacao?.toDate?.().toISOString().split('T')[0] ?? '';
+      const dataExib  = post.dataCriacao?.toDate
+        ? post.dataCriacao.toDate().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })
+        : '';
+      const catNomes  = { microbiologia:'Microbiologia', diagnostico:'Diagnóstico', laboratorio:'Laboratório', novidades:'Novidades' };
+      const catNome   = catNomes[post.categoria] || post.categoria || '';
+
+      /* SEO dinâmico */
+      document.title = `${post.titulo} | Blog Brasil Científica`;
+      setMeta('description', post.resumo || '');
+      setAttr('#canonical',      'href',    url);
+      setAttr('#og-url',         'content', url);
+      setAttr('#og-title',       'content', `${post.titulo} | Blog Brasil Científica`);
+      setAttr('#og-description', 'content', post.resumo || '');
+      setAttr('#og-image',       'content', post.imagemCapa || '');
+
+      /* Capa */
+      const imgCapa = document.getElementById('post-capa-img');
+      if (post.imagemCapa) {
+        imgCapa.src = post.imagemCapa;
+        imgCapa.alt = post.titulo;
+      } else {
+        imgCapa.parentElement.style.background = 'var(--cor-navy, #2E4B6E)';
+        imgCapa.remove();
+      }
+
+      /* Textos do hero */
+      setText('post-breadcrumb-titulo',  post.titulo);
+      setText('post-badge-categoria',    catNome);
+      setText('post-titulo',             post.titulo);
+
+      const elData = document.getElementById('post-data');
+      elData.setAttribute('datetime', dataISO);
+      elData.innerHTML = `<i class="fa-regular fa-calendar" aria-hidden="true"></i> ${dataExib}`;
+
+      if (post.leituraMin) {
+        const elLeitura = document.getElementById('post-leitura');
+        elLeitura.hidden = false;
+        elLeitura.innerHTML = `<i class="fa-regular fa-clock" aria-hidden="true"></i> ${post.leituraMin} min de leitura`;
+      }
+
+      /* Corpo do artigo — o conteúdo é HTML salvo no Firestore */
+      document.getElementById('post-body').innerHTML = post.conteudoHtml || '';
+
+      /* Links de compartilhamento */
+      const urlEnc = encodeURIComponent(url);
+      const tituloEnc = encodeURIComponent(post.titulo);
+      document.getElementById('compartilhar-linkedin').href =
+        `https://www.linkedin.com/sharing/share-offsite/?url=${urlEnc}`;
+      document.getElementById('compartilhar-whatsapp').href =
+        `https://wa.me/?text=${tituloEnc}%20${urlEnc}`;
+    }
+
+    async function carregarRelacionados(postAtual) {
+      const grid = document.getElementById('posts-relacionados-grid');
+      if (!grid) return;
+
+      try {
+        const q = query(
+          collection(db, 'posts'),
+          where('publicado',  '==', true),
+          where('categoria',  '==', postAtual.categoria),
+          orderBy('dataCriacao', 'desc'),
+          limit(4)
+        );
+        const snap  = await getDocs(q);
+        const posts = snap.docs
+          .map(d => ({ id: d.id, ...d.data() }))
+          .filter(p => p.id !== postAtual.id)
+          .slice(0, 3);
+
+        if (!posts.length) {
+          document.querySelector('.posts-relacionados')?.remove();
+          return;
+        }
+
+        grid.innerHTML = posts.map(p => {
+          const dataExib = p.dataCriacao?.toDate
+            ? p.dataCriacao.toDate().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })
+            : '';
+          const catNomes = { microbiologia:'Microbiologia', diagnostico:'Diagnóstico', laboratorio:'Laboratório', novidades:'Novidades' };
+          const imagem   = p.imagemCapa
+            ? `<img src="${p.imagemCapa}" alt="${esc(p.titulo)}" loading="lazy" decoding="async">`
+            : `<div class="image-placeholder" style="height:100%"></div>`;
+
+          return `
+            <article class="post-card animar-entrada" role="listitem">
+              <a href="post.html?id=${p.slug || p.id}" class="post-card__imagem-link" tabindex="-1" aria-hidden="true">
+                <div class="post-card__imagem">
+                  ${imagem}
+                  <span class="post__badge">${esc(catNomes[p.categoria] || '')}</span>
+                </div>
+              </a>
+              <div class="post-card__conteudo">
+                <div class="post__meta">
+                  <time class="post__data"><i class="fa-regular fa-calendar" aria-hidden="true"></i> ${dataExib}</time>
+                </div>
+                <h3 class="post-card__titulo"><a href="post.html?id=${p.slug || p.id}">${esc(p.titulo)}</a></h3>
+                <a href="post.html?id=${p.slug || p.id}" class="post-card__link">
+                  Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>`;
+        }).join('');
+
+      } catch (err) {
+        console.error('[Post] Erro ao carregar relacionados:', err);
+        document.querySelector('.posts-relacionados')?.remove();
+      }
+    }
+
+    /* Helpers */
+    const mostrar  = el => { if (el) { el.hidden = false; el.style.display = ''; } };
+    const ocultar  = el => { if (el) el.hidden = true; };
+    const setText  = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+    const setAttr  = (sel, attr, val) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+    const setMeta  = (name, val) => { const el = document.querySelector(`meta[name="${name}"]`); if (el) el.setAttribute('content', val); };
+    const esc      = str => String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+    carregarPost();
+  </script>
+
+  <script src="blog.js" type="module" defer></script>
+
+</body>
+</html>

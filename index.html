@@ -204,6 +204,9 @@
             </ul>
           </li>
           <li class="nav__item">
+            <a href="#novidades" class="nav__link">Novidades</a>
+          </li>
+          <li class="nav__item">
             <a href="blog.html" class="nav__link">Blog</a>
           </li>
           <li class="nav__item">
@@ -226,7 +229,7 @@
         <p class="hero__eyebrow">Excelência em Diagnósticos Laboratoriais</p>
         <h1 id="hero-title" class="hero__title">
           Soluções completas em<br />
-          <span class="hero__title--highlight">Microbiologia e Produtos Laboratoriais</span>
+          <span class="hero__title--highlight">Produtos Laboratoriais</span>
         </h1>
         <p class="hero__description">
           Distribuidor autorizado pela ANVISA para distribuir Produtos para a Saúde. <br>
@@ -251,6 +254,60 @@
           fetchpriority="high"
           decoding="async" />
         </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         NOVIDADES / PROMOÇÕES
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="novidades" class="section section--novidades" aria-labelledby="novidades-title">
+      <div class="container">
+
+        <header class="section__header">
+          <span class="section__eyebrow">Fique por dentro</span>
+          <h2 id="novidades-title" class="section__title">Novidades e Promoções</h2>
+          <p class="section__subtitle">Acompanhe as últimas ofertas e lançamentos da Brasil Científica</p>
+        </header>
+
+        <!-- Estado: carregando -->
+        <div id="novidades-loading" class="novidades__loading" aria-live="polite">
+          <i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>
+          <span>Carregando novidades…</span>
+        </div>
+
+        <!-- Estado: sem novidades (oculto por padrão) -->
+        <div id="novidades-vazio" class="novidades__vazio" hidden>
+          <i class="fa-regular fa-bell-slash" aria-hidden="true"></i>
+          <p>Nenhuma novidade no momento. Volte em breve!</p>
+        </div>
+
+        <!-- Carrossel de flyers -->
+        <div id="novidades-carrossel-wrap" class="novidades__carrossel-wrap" hidden>
+          <button class="novidades__nav novidades__nav--prev" id="novidades-prev"
+                  aria-label="Novidade anterior" type="button">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+
+          <div class="novidades__viewport" aria-label="Carrossel de novidades">
+            <ul id="novidades-faixa" class="novidades__faixa" role="list"></ul>
+          </div>
+
+          <button class="novidades__nav novidades__nav--next" id="novidades-next"
+                  aria-label="Próxima novidade" type="button">
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Dots de paginação -->
+        <div id="novidades-dots" class="novidades__dots" role="tablist" aria-label="Paginação do carrossel" hidden></div>
+
+        <div class="novidades__rodape">
+          <a href="#contato" class="btn btn--secondary">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i> Consulte nossa equipe
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -421,7 +478,7 @@
               <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
             </div>
             <h3 class="mvv__titulo">Missão</h3>
-            <p class="mvv__texto">Nossa missão é oferecer uma linha de produtos laboratoriais, com ênfase em microbiologia, apoiados por suporte técnico especializado e um atendimento personalizado, garantindo confiança e excelência em cada entrega. </p>
+            <p class="mvv__texto">Nossa missão é oferecer uma linha de produtos laboratoriais, apoiados por suporte técnico especializado e um atendimento personalizado, garantindo confiança e excelência em cada entrega. </p>
           </article>
 
           <article class="mvv__card mvv__card--visao">
@@ -429,7 +486,7 @@
               <i class="fa-solid fa-eye" aria-hidden="true"></i>
             </div>
             <h3 class="mvv__titulo">Visão</h3>
-            <p class="mvv__texto">Ser reconhecida até 2030 como a distribuidora de referência em produtos para microbiologia no Brasil, expandindo nossa presença em todo o território nacional com inovação e qualidade.</p>
+            <p class="mvv__texto">Ser reconhecida até 2030 como a distribuidora de referência em produtos para laboratório no Brasil, expandindo nossa presença em todo o território nacional com inovação e qualidade.</p>
           </article>
 
           <article class="mvv__card mvv__card--valores">
@@ -455,20 +512,22 @@
           <div class="parceiros__trilha-wrapper">
             <ul class="parceiros__grid" role="list" aria-label="Marcas parceiras">
               <!-- originais -->
-              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_newprov.png" alt="Logo Newprov"></li>
-              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cecon.png" alt="Logo Cecon"></li>
-              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_wama.png" alt="Logo Wama"></li>
-              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cefarz.png" alt="Logo Cefarz"></li>
-              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_produbac.png" alt="Logo Probac"></li>
-              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_plastlabor.png" alt="Logo Plastlabor"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_newprov.webp" alt="Logo Newprov"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cecon.webp" alt="Logo Cecon"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_wama.webp" alt="Logo Wama"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_cefarz.webp" alt="Logo Cefarz"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_produbac.webp" alt="Logo Probac"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_plastlabor.webp" alt="Logo Plastlabor"></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_medlevensohn.webp" alt="Logo Medlevensohn"></li>
 
               <!-- cópia para o loop — aria-hidden para não duplicar no leitor de tela -->
-              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_newprov.png" alt=""></li>
-              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_cecon.png" alt=""></li>
-              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_wama.png" alt=""></li>
-              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_cefarz.png" alt=""></li>
-              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_produbac.png" alt=""></li>
-              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_plastlabor.png" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_newprov.webp" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_cecon.webp" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_wama.webp" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_cefarz.webp" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_produbac.webp" alt=""></li>
+              <li class="parceiro__logo" role="listitem" aria-hidden="true"><img src="images/parceiros/logo_plastlabor.webp" alt=""></li>
+              <li class="parceiro__logo" role="listitem"><img src="images/parceiros/logo_medlevensohn.webp" alt="Logo Medlevensohn"></li>
             </ul>
           </div>
 
@@ -590,8 +649,10 @@
             </li>
 
             <li class="produto__card animar-entrada" aria-labelledby="sub-micro-5">
-              <div class="produto__imagem">
-                <div class="image-placeholder" aria-hidden="true">[FOTO]</div>
+              <div class="produto__imagem produto__carrossel" data-total="1">
+                <div class="carrossel__faixa">
+                  <div class="carrossel__slide"><img src="images/produtos/potabilidade.webp" alt="Hemocultura" loading="lazy"></div>
+                </div>
               </div>
               <div class="produto__info">
                 <span class="produto__categoria">Microbiologia</span>
@@ -646,14 +707,7 @@
             <li class="produto__card animar-entrada" aria-labelledby="sub-diag-1">
               <div class="produto__imagem produto__carrossel" data-total="2">
                 <div class="carrossel__faixa">
-                  <div class="carrossel__slide"><img src="images/produtos/teste_rapidos_1.webp" alt="Teste Rápido" loading="lazy"></div>
-                  <div class="carrossel__slide"><img src="images/produtos/teste_rapidos_2.webp" alt="Teste Rápido" loading="lazy"></div>
-                </div>
-                <button class="carrossel__btn carrossel__btn--prev" aria-label="Foto anterior" tabindex="-1"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-                <button class="carrossel__btn carrossel__btn--next" aria-label="Próxima foto" tabindex="-1"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-                <div class="carrossel__dots" aria-hidden="true">
-                  <span class="carrossel__dot carrossel__dot--ativo"></span>
-                  <span class="carrossel__dot"></span>
+                  <div class="carrossel__slide"><img src="images/produtos/teste_rapido.webp" alt="Teste Rápido" loading="lazy"></div>
                 </div>
               </div>
               <div class="produto__info">
@@ -754,8 +808,10 @@
             </li>
 
             <li class="produto__card animar-entrada" aria-labelledby="sub-diag-5">
-              <div class="produto__imagem">
-                <div class="image-placeholder" aria-hidden="true">[FOTO]</div>
+              <div class="produto__imagem produto__carrossel" data-total="1">
+                <div class="carrossel__faixa">
+                  <div class="carrossel__slide"><img src="images/produtos/testes_tolerancia.webp" alt="Teste de tolerância" loading="lazy"></div>
+                </div>
               </div>
               <div class="produto__info">
                 <span class="produto__categoria">Diagnóstico</span>
@@ -792,7 +848,6 @@
                 <div class="carrossel__faixa">
                   <div class="carrossel__slide"><img src="images/produtos/descartaveis_1.webp" alt="Descartáveis" loading="lazy"></div>
                   <div class="carrossel__slide"><img src="images/produtos/descartaveis_2.webp" alt="Descartáveis" loading="lazy"></div>
-                  <div class="carrossel__slide"><img src="images/produtos/descartaveis_3.webp" alt="Descartáveis" loading="lazy"></div>
                 </div>
                 <button class="carrossel__btn carrossel__btn--prev" aria-label="Foto anterior" tabindex="-1"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
                 <button class="carrossel__btn carrossel__btn--next" aria-label="Próxima foto" tabindex="-1"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
@@ -822,7 +877,11 @@
 
             <li class="produto__card animar-entrada" aria-labelledby="sub-ace-2">
               <div class="produto__imagem">
-                <div class="image-placeholder" aria-hidden="true">[FOTO]</div>
+              <div class="produto__imagem produto__carrossel" data-total="1">
+                <div class="carrossel__faixa">
+                  <div class="carrossel__slide"><img src="images/produtos/descartaveis_3.webp" alt="Descartáveis" loading="lazy"></div>
+              </div>
+                </div>
               </div>
               <div class="produto__info">
                 <span class="produto__categoria">Acessórios</span>
@@ -1032,7 +1091,8 @@
                 <div class="dado__texto">
                   <strong>Telefone</strong>
                   <a href="tel:+554130337300">(41) 3033-7300</a>
-                  <a href="tel:+5541900000000">(41) 99839-5626</a>
+                  <a href="tel:+5541998395626">(41) 99839-5626</a>
+                  <a href="tel:+5541995760115">(41) 99576-0115</a>
                 </div>
               </div>
               <div class="dado__item">
@@ -1123,6 +1183,7 @@
             <li><a href="#home"    class="footer__link">Home</a></li>
             <li><a href="#sobre"   class="footer__link">Sobre Nós</a></li>
             <li><a href="#produtos" class="footer__link">Produtos</a></li>
+            <li><a href="#novidades" class="footer__link">Novidades</a></li>
             <li><a href="blog.html" class="footer__link">Blog</a></li>
             <li><a href="#contato" class="footer__link">Contato</a></li>
             <!--<li><a href="/politica-de-privacidade" class="footer__link">Política de Privacidade</a></li>-->
@@ -1178,6 +1239,108 @@
 
   <!-- JS principal — defer garante que o DOM já esteja pronto -->
   <script src="main.js" defer></script>
+
+  <!-- Novidades — carrega flyers do Firestore -->
+  <script type="module">
+    import { db } from './firebase-config.js';
+    import {
+      collection, query, where, orderBy, getDocs,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    async function initNovidades() {
+      const loading  = document.getElementById('novidades-loading');
+      const vazio    = document.getElementById('novidades-vazio');
+      const wrap     = document.getElementById('novidades-carrossel-wrap');
+      const faixa    = document.getElementById('novidades-faixa');
+      const dotsWrap = document.getElementById('novidades-dots');
+      const btnPrev  = document.getElementById('novidades-prev');
+      const btnNext  = document.getElementById('novidades-next');
+
+      let indice = 0;
+      let total  = 0;
+
+      try {
+        const q    = query(
+          collection(db, 'novidades'),
+          where('publicado', '==', true),
+          orderBy('dataCriacao', 'desc')
+        );
+        const snap = await getDocs(q);
+
+        loading.hidden = true;
+
+        if (snap.empty) { vazio.hidden = false; return; }
+
+        const novidades = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        total = novidades.length;
+
+        /* Monta os slides */
+        faixa.innerHTML = novidades.map((n, i) => `
+          <li class="novidades__slide" role="tabpanel" aria-label="Novidade ${i + 1} de ${total}" data-index="${i}">
+            <figure class="novidades__flyer">
+              <img src="${n.imagemUrl}" alt="${esc(n.titulo || 'Flyer de novidade')}"
+                   loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async" />
+              ${n.titulo ? `<figcaption class="novidades__legenda">${esc(n.titulo)}</figcaption>` : ''}
+            </figure>
+          </li>`).join('');
+
+        /* Dots */
+        if (total > 1) {
+          dotsWrap.hidden = false;
+          dotsWrap.innerHTML = novidades.map((_, i) => `
+            <button class="novidades__dot ${i === 0 ? 'novidades__dot--ativo' : ''}"
+                    role="tab" aria-label="Novidade ${i + 1}" data-index="${i}" type="button"></button>
+          `).join('');
+
+          dotsWrap.querySelectorAll('.novidades__dot').forEach(dot => {
+            dot.addEventListener('click', () => irPara(+dot.dataset.index));
+          });
+
+          btnPrev.addEventListener('click', () => irPara((indice - 1 + total) % total));
+          btnNext.addEventListener('click', () => irPara((indice + 1) % total));
+        } else {
+          btnPrev.hidden = true;
+          btnNext.hidden = true;
+        }
+
+        wrap.hidden = false;
+        irPara(0);
+
+        /* Auto-avanço a cada 5s */
+        if (total > 1) {
+          setInterval(() => irPara((indice + 1) % total), 5000);
+        }
+
+      } catch (err) {
+        console.error('[Novidades] Erro ao carregar:', err);
+        loading.hidden = true;
+        vazio.hidden   = false;
+      }
+
+      function irPara(i) {
+        indice = i;
+        faixa.style.transform = `translateX(-${i * 100}%)`;
+
+        /* Atualiza dots */
+        dotsWrap.querySelectorAll('.novidades__dot').forEach((d, idx) => {
+          d.classList.toggle('novidades__dot--ativo', idx === i);
+          d.setAttribute('aria-selected', idx === i);
+        });
+
+        /* Atualiza visibilidade dos botões */
+        btnPrev.disabled = i === 0;
+        btnNext.disabled = i === total - 1;
+      }
+    }
+
+    function esc(str = '') {
+      return String(str)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    document.addEventListener('DOMContentLoaded', initNovidades);
+  </script>
 
 </body>
 </html>

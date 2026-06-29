@@ -2454,3 +2454,182 @@ object {
 .skip-link:focus {
   top: var(--space-4);
 }
+
+/* ============================================================
+   SEÇÃO NOVIDADES / PROMOÇÕES
+   Carrossel de flyers portrait (proporção ~2:3)
+   ============================================================ */
+
+.section--novidades {
+  background: var(--cor-fundo-alt, #f8fafc);
+}
+
+/* Loading */
+.novidades__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: 3rem;
+  color: var(--cor-texto-suave, #6b7280);
+  font-size: .95rem;
+}
+
+/* Estado vazio */
+.novidades__vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  padding: 3rem;
+  color: var(--cor-texto-suave, #6b7280);
+  text-align: center;
+}
+.novidades__vazio i { font-size: 2.5rem; opacity: .5; }
+
+/* Wrapper do carrossel */
+.novidades__carrossel-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Viewport — janela visível */
+.novidades__viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--radius-lg, 12px);
+}
+
+/* Faixa deslizante */
+.novidades__faixa {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+  will-change: transform;
+}
+
+/* Slide individual */
+.novidades__slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+/* Flyer */
+.novidades__flyer {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.novidades__flyer img {
+  width: 100%;
+  max-width: 420px;   /* largura máxima do flyer portrait */
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 8px 32px rgba(46, 75, 110, .15);
+  object-fit: contain;
+}
+
+.novidades__legenda {
+  margin-top: .75rem;
+  font-size: .9rem;
+  color: var(--cor-texto-suave, #6b7280);
+  text-align: center;
+  max-width: 420px;
+}
+
+/* Botões de navegação */
+.novidades__nav {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 2px solid var(--cor-acento, #4CBFAD);
+  background: var(--branco, #fff);
+  color: var(--cor-acento, #4CBFAD);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, color .2s;
+  z-index: 2;
+}
+
+.novidades__nav:hover:not(:disabled) {
+  background: var(--cor-acento, #4CBFAD);
+  color: var(--branco, #fff);
+}
+
+.novidades__nav:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+/* Dots */
+.novidades__dots {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+
+.novidades__dot {
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--cor-acento, #4CBFAD);
+  opacity: .3;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity .2s, transform .2s;
+}
+
+.novidades__dot--ativo {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+/* Rodapé da seção */
+.novidades__rodape {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* ── Responsivo ── */
+@media (max-width: 768px) {
+  .novidades__nav {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: .85rem;
+  }
+
+  .novidades__flyer img {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .novidades__carrossel-wrap {
+    gap: .5rem;
+  }
+
+  .novidades__nav {
+    width: 2rem;
+    height: 2rem;
+    font-size: .75rem;
+  }
+
+  .novidades__flyer img {
+    max-width: 100%;
+    border-radius: var(--radius-md, 8px);
+  }
+}
