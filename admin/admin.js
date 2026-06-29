@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Observa estado de autenticação */
   onAuthStateChanged(auth, (usuario) => {
+    document.body.style.visibility = 'visible';
     if (usuario) {
       mostrarPainel();
     } else {
