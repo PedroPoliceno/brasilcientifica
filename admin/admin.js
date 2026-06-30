@@ -6,7 +6,6 @@
 
 import { auth }           from '../firebase-config.js';
 import {
-  signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
@@ -20,23 +19,25 @@ let _modalCallback = null;
 /* ════════════════════════════════════════════
    BOOT
 ════════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', () => {
 
-  /* Observa estado de autenticação */
-  onAuthStateChanged(auth, (usuario) => {
+/* Se não houver sessão ativa, redireciona para login.html.
+   Esta página (index.html) só renderiza o painel — o HTML do
+   formulário de login nem existe aqui, então não há como o
+   conteúdo do painel "vazar" antes da autenticação. */
+onAuthStateChanged(auth, (usuario) => {
+  if (usuario) {
     document.body.style.visibility = 'visible';
-    if (usuario) {
-      mostrarPainel();
-    } else {
-      mostrarLogin();
-    }
-  });
+    iniciarPainel();
+  } else {
+    window.location.href = 'index.html';
+  }
+});
 
-  /* Login */
-  document.getElementById('btn-login').addEventListener('click', fazerLogin);
-  document.getElementById('login-senha').addEventListener('keydown', e => {
-    if (e.key === 'Enter') fazerLogin();
-  });
+function iniciarPainel() {
+  /* Inicializa módulos */
+  initNovidades();
+  initBlogAdmin();
+  navegarPara('novidades');
 
   /* Logout */
   document.getElementById('btn-logout').addEventListener('click', () => {
@@ -59,73 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modal-confirmar').addEventListener('click', e => {
     if (e.target === e.currentTarget) fecharModal();
   });
-
-});
-
-
-/* ════════════════════════════════════════════
-   AUTENTICAÇÃO
-════════════════════════════════════════════ */
-async function fazerLogin() {
-  const email = document.getElementById('login-email').value.trim();
-  const senha = document.getElementById('login-senha').value;
-  const erroEl = document.getElementById('login-erro');
-  const btnLogin = document.getElementById('btn-login');
-
-  if (!email || !senha) {
-    mostrarAlerta(erroEl, 'Preencha e-mail e senha.');
-    return;
-  }
-
-  btnLogin.disabled = true;
-  btnLogin.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Entrando…';
-  erroEl.hidden = true;
-
-  try {
-    await signInWithEmailAndPassword(auth, email, senha);
-    /* onAuthStateChanged cuida da navegação */
-  } catch (err) {
-    const msgs = {
-      'auth/invalid-credential':    'E-mail ou senha incorretos.',
-      'auth/user-not-found':        'Usuário não encontrado.',
-      'auth/wrong-password':        'Senha incorreta.',
-      'auth/too-many-requests':     'Muitas tentativas. Aguarde alguns minutos.',
-      'auth/network-request-failed':'Sem conexão com a internet.',
-    };
-    mostrarAlerta(erroEl, msgs[err.code] || 'Erro ao entrar. Tente novamente.');
-  } finally {
-    btnLogin.disabled = false;
-    btnLogin.innerHTML = '<i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Entrar';
-  }
 }
 
 
 /* ════════════════════════════════════════════
-   VISIBILIDADE DE TELAS
+   NAVEGAÇÃO ENTRE TELAS
 ════════════════════════════════════════════ */
-function mostrarLogin() {
-  document.getElementById('tela-login').hidden = false;
-  document.getElementById('painel').hidden = true;
-}
-
-function mostrarPainel() {
-  document.getElementById('tela-login').hidden = true;
-  document.getElementById('painel').hidden = false;
-
-  /* Inicializa módulos na primeira carga */
-  initNovidades();
-  initBlogAdmin();
-
-  navegarPara('novidades');
-}
-
 function navegarPara(tela) {
-  /* Atualiza botões da sidebar */
   document.querySelectorAll('.sidebar__item[data-tela]').forEach(btn => {
     btn.classList.toggle('sidebar__item--ativo', btn.dataset.tela === tela);
   });
 
-  /* Mostra/oculta telas */
   document.getElementById('tela-novidades').hidden = tela !== 'novidades';
   document.getElementById('tela-blog').hidden       = tela !== 'blog';
 }

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Brasil Científica</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Quill.js (editor rico) -->
+  <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet" />
+  <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+
+  <link rel="stylesheet" href="admin.css" />
+  <style>body { visibility: hidden; }</style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       PAINEL PRINCIPAL
+       (só é exibido após admin.js confirmar sessão ativa;
+       caso contrário o usuário é redirecionado para login.html)
+  ════════════════════════════════════════════ -->
+  <div id="painel" class="painel">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar__topo">
+        <img src="../images/logo/logo_header.png" alt="Brasil Científica" class="sidebar__logo" />
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Menu do painel">
+        <button class="sidebar__item sidebar__item--ativo" data-tela="novidades" type="button">
+          <i class="fa-solid fa-star" aria-hidden="true"></i> Novidades
+        </button>
+        <button class="sidebar__item" data-tela="blog" type="button">
+          <i class="fa-solid fa-newspaper" aria-hidden="true"></i> Blog
+        </button>
+      </nav>
+
+      <div class="sidebar__rodape">
+        <button id="btn-logout" class="sidebar__logout" type="button">
+          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Sair
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área principal -->
+    <main class="painel__main">
+
+      <!-- ── TELA: NOVIDADES ── -->
+      <section id="tela-novidades" class="tela" aria-labelledby="novidades-titulo">
+        <div class="tela__cabecalho">
+          <div>
+            <h2 id="novidades-titulo" class="tela__titulo">Novidades / Promoções</h2>
+            <p class="tela__subtitulo">Gerencie os flyers exibidos na seção de novidades do site.</p>
+          </div>
+          <button id="btn-nova-novidade" class="btn-primario" type="button">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i> Nova Novidade
+          </button>
+        </div>
+
+        <!-- Formulário (oculto por padrão) -->
+        <div id="form-novidade-wrap" class="form-card" hidden>
+          <h3 class="form-card__titulo" id="form-novidade-titulo">Nova Novidade</h3>
+
+          <div id="novidade-form-erro" class="alerta alerta--erro" hidden></div>
+
+          <div class="campo">
+            <label for="novidade-titulo-input" class="campo__label">Título <span class="campo__opcional">(opcional)</span></label>
+            <input id="novidade-titulo-input" type="text" class="campo__input" placeholder="Ex: Med Test — Testes Rápidos" maxlength="100" />
+          </div>
+
+          <div class="campo">
+            <label class="campo__label">Imagem do Flyer <span class="campo__obrig">*</span></label>
+            <div id="novidade-dropzone" class="dropzone" role="button" tabindex="0" aria-label="Clique ou arraste a imagem do flyer aqui">
+              <i class="fa-solid fa-cloud-arrow-up dropzone__icone" aria-hidden="true"></i>
+              <p class="dropzone__texto">Clique ou arraste a imagem aqui</p>
+              <p class="dropzone__hint">PNG, JPG, WebP — máx. 5 MB</p>
+              <input id="novidade-arquivo" type="file" accept="image/*" class="dropzone__input" aria-hidden="true" tabindex="-1" />
+            </div>
+            <div id="novidade-preview" class="imagem-preview" hidden>
+              <img id="novidade-preview-img" src="" alt="Preview do flyer" />
+              <button id="novidade-preview-remover" class="imagem-preview__remover" type="button" aria-label="Remover imagem">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-acoes">
+            <button id="btn-cancelar-novidade" class="btn-secundario" type="button">Cancelar</button>
+            <button id="btn-salvar-novidade" class="btn-primario" type="button">
+              <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Publicar
+            </button>
+          </div>
+
+          <div id="novidade-progresso-wrap" class="progresso-wrap" hidden>
+            <div class="progresso-barra">
+              <div id="novidade-progresso-barra" class="progresso-barra__fill" style="width:0%"></div>
+            </div>
+            <p id="novidade-progresso-texto" class="progresso-texto">Enviando imagem…</p>
+          </div>
+        </div>
+
+        <!-- Lista de novidades -->
+        <div id="novidades-lista" class="cards-lista">
+          <div class="loading-spinner"><i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Carregando…</div>
+        </div>
+      </section>
+
+
+      <!-- ── TELA: BLOG ── -->
+      <section id="tela-blog" class="tela" hidden aria-labelledby="blog-admin-titulo">
+        <div class="tela__cabecalho">
+          <div>
+            <h2 id="blog-admin-titulo" class="tela__titulo">Blog</h2>
+            <p class="tela__subtitulo">Crie e gerencie os artigos do blog.</p>
+          </div>
+          <button id="btn-novo-post" class="btn-primario" type="button">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i> Novo Post
+          </button>
+        </div>
+
+        <!-- Formulário de post -->
+        <div id="form-post-wrap" class="form-card" hidden>
+          <h3 class="form-card__titulo" id="form-post-titulo-label">Novo Post</h3>
+
+          <div id="post-form-erro" class="alerta alerta--erro" hidden></div>
+
+          <div class="campo">
+            <label for="post-titulo-input" class="campo__label">Título <span class="campo__obrig">*</span></label>
+            <input id="post-titulo-input" type="text" class="campo__input" placeholder="Título do artigo" maxlength="120" />
+          </div>
+
+          <div class="grade-2">
+            <div class="campo">
+              <label for="post-categoria" class="campo__label">Categoria <span class="campo__obrig">*</span></label>
+              <select id="post-categoria" class="campo__input campo__select">
+                <option value="">Selecione…</option>
+                <option value="microbiologia">Microbiologia</option>
+                <option value="diagnostico">Diagnóstico</option>
+                <option value="laboratorio">Laboratório</option>
+                <option value="novidades">Novidades</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="post-leitura" class="campo__label">Tempo de leitura (min) <span class="campo__opcional">(opcional)</span></label>
+              <input id="post-leitura" type="number" min="1" max="60" class="campo__input" placeholder="5" />
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="post-resumo" class="campo__label">Resumo <span class="campo__obrig">*</span></label>
+            <textarea id="post-resumo" class="campo__input campo__textarea" rows="3"
+              placeholder="Breve descrição do artigo (exibida no card do blog, ~150 caracteres)" maxlength="300"></textarea>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label">Imagem de Capa <span class="campo__opcional">(opcional)</span></label>
+            <div id="capa-dropzone" class="dropzone" role="button" tabindex="0" aria-label="Clique ou arraste a imagem de capa aqui">
+              <i class="fa-solid fa-image dropzone__icone" aria-hidden="true"></i>
+              <p class="dropzone__texto">Clique ou arraste a imagem de capa aqui</p>
+              <p class="dropzone__hint">PNG, JPG, WebP — máx. 5 MB — Ideal: 1200×630px</p>
+              <input id="capa-arquivo" type="file" accept="image/*" class="dropzone__input" aria-hidden="true" tabindex="-1" />
+            </div>
+            <div id="capa-preview" class="imagem-preview" hidden>
+              <img id="capa-preview-img" src="" alt="Preview da capa" />
+              <button id="capa-preview-remover" class="imagem-preview__remover" type="button" aria-label="Remover imagem">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label">Conteúdo do Artigo <span class="campo__obrig">*</span></label>
+            <div id="quill-editor" class="quill-wrapper"></div>
+          </div>
+
+          <div class="form-acoes">
+            <button id="btn-cancelar-post" class="btn-secundario" type="button">Cancelar</button>
+            <button id="btn-rascunho-post" class="btn-secundario" type="button">
+              <i class="fa-regular fa-floppy-disk" aria-hidden="true"></i> Salvar Rascunho
+            </button>
+            <button id="btn-publicar-post" class="btn-primario" type="button">
+              <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Publicar
+            </button>
+          </div>
+
+          <div id="post-progresso-wrap" class="progresso-wrap" hidden>
+            <div class="progresso-barra">
+              <div id="post-progresso-barra" class="progresso-barra__fill" style="width:0%"></div>
+            </div>
+            <p id="post-progresso-texto" class="progresso-texto">Salvando…</p>
+          </div>
+        </div>
+
+        <!-- Lista de posts -->
+        <div id="posts-lista" class="cards-lista">
+          <div class="loading-spinner"><i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Carregando…</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal de confirmação de exclusão -->
+  <div id="modal-confirmar" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal-card">
+      <i class="fa-solid fa-triangle-exclamation modal-icone" aria-hidden="true"></i>
+      <h3 id="modal-titulo" class="modal-titulo">Confirmar exclusão</h3>
+      <p id="modal-mensagem" class="modal-mensagem"></p>
+      <div class="modal-acoes">
+        <button id="modal-cancelar" class="btn-secundario" type="button">Cancelar</button>
+        <button id="modal-confirmar-btn" class="btn-perigo" type="button">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
