@@ -84,6 +84,13 @@
 
   <!-- Estado: sem posts publicados -->
   <style>
+    /* Garante que [hidden] vença o display:flex abaixo — sem isso o
+       navegador ignora o "hidden" que o blog.js define via JS e a
+       mensagem "Em breve" fica visível mesmo com posts carregados. */
+    .blog-em-breve[hidden] {
+      display: none;
+    }
+
     .blog-em-breve {
       display: flex;
       flex-direction: column;

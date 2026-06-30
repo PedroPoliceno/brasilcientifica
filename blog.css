@@ -237,6 +237,10 @@
 }
 
 /* Mensagem de nenhum resultado */
+.blog-sem-resultados[hidden] {
+  display: none;
+}
+
 .blog-sem-resultados {
   text-align: center;
   padding: var(--space-16) var(--space-8);
