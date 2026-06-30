@@ -2464,6 +2464,16 @@ object {
   background: var(--cor-fundo-alt, #f8fafc);
 }
 
+/* Garante que o atributo [hidden] sempre vença o display:flex das classes
+   abaixo — sem isso, o navegador ignora o "hidden" definido via JS
+   (loading.hidden, vazio.hidden, wrap.hidden) e os três estados ficam
+   visíveis ao mesmo tempo. */
+.novidades__loading[hidden],
+.novidades__vazio[hidden],
+.novidades__carrossel-wrap[hidden] {
+  display: none;
+}
+
 /* Loading */
 .novidades__loading {
   display: flex;
