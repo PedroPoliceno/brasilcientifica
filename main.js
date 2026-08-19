@@ -399,9 +399,10 @@ function sanitize(str) {
     btnEnviar.disabled = loading;
   }
 
-  /* — Coleta dados do formulário — */
-  /*function coletarDados() {
+  /* — Coleta dados do formulário (inclui form-name p/ Netlify) — */
+  function coletarDados() {
     return {
+      'form-name': form.getAttribute('name') ?? 'contato',
       nome:     sanitize($('#nome', form).value.trim()),
       empresa:  sanitize($('#empresa', form)?.value.trim() ?? ''),
       email:    $('#email', form).value.trim().toLowerCase(),
@@ -411,8 +412,8 @@ function sanitize(str) {
     };
   }
 
-  /* — Submit — */
-  /*form.addEventListener('submit', async function (e) {
+  /* — Submit (Netlify Forms) — */
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     // Honeypot: rejeita bots silenciosamente
@@ -429,24 +430,14 @@ function sanitize(str) {
     setBtnLoading(true);
 
     const dados = coletarDados();
-    const endpoint = form.dataset.endpoint ?? '/api/contato';
 
     try {
-      /**
-       * Integração com backend — pronto para usar.
-       * Descomente quando o endpoint estiver disponível:
-       *
-       * const res = await fetch(endpoint, {
-       *   method: 'POST',
-       *   headers: { 'Content-Type': 'application/json' },
-       *   body: JSON.stringify(dados),
-       * });
-       * if (!res.ok) throw new Error(`HTTP ${res.status}`);
-       * const json = await res.json();
-       */
-
-      // Simulação de envio (remover ao integrar com backend)
-      /*await new Promise(r => setTimeout(r, 1200));
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(dados).toString(),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       exibirFeedback('sucesso', 'Mensagem enviada com sucesso! Retornaremos em breve.');
       form.reset();
@@ -461,4 +452,4 @@ function sanitize(str) {
       setBtnLoading(false);
     }
   });
-})();*/})()
+})()

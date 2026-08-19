@@ -1790,6 +1790,11 @@ address { font-style: normal; }
 }
 .footer__desenvolvido a { color: var(--cor-acento-clara); }
 .footer__desenvolvido a:hover { color: var(--cor-acento); }
+.footer__logo {
+  height: 14px;
+  width: auto;
+  vertical-align: middle;
+}
 
 
 /* ------------------------------------------------------------

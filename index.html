@@ -934,14 +934,17 @@
             <h3 class="formulario__titulo">Envie sua mensagem</h3>
 
             <form
-              action="https://formspree.io/f/xzdknbvq"
+              name="contato"
               method="post"
               id="formContato"
               class="form"
               autocomplete="on"
-              data-endpoint="/api/contato"
+              data-netlify="true"
+              netlify-honeypot="website"
               aria-label="Formulário de contato"
               novalidate>
+
+              <input type="hidden" name="form-name" value="contato" />
 
               <!-- Honeypot anti-spam (campo oculto por CSS, não por display:none) -->
               <div class="form__honeypot" aria-hidden="true">
@@ -1096,6 +1099,7 @@
                   <a href="tel:+554130337300">(41) 3033-7300</a>
                   <a href="tel:+5541998395626">(41) 99839-5626</a>
                   <a href="tel:+5541995760115">(41) 99576-0115</a>
+                  <a href="tel:+5541999225335">(41) 99922-5335</a>
                 </div>
               </div>
               <div class="dado__item">
@@ -1224,7 +1228,7 @@
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
         <p class="footer__copyright">&copy; <span id="anoAtual"></span> Brasil Científica. Todos os direitos reservados.</p>
-        <p class="footer__desenvolvido">Desenvolvido por <a href="#" class="footer__link">Savelly</a></p>
+        <p class="footer__desenvolvido">Desenvolvido por <img src="images/setnar-logo.webp" alt="Setnar" class="footer__logo"></p>
       </div>
     </div>
 
