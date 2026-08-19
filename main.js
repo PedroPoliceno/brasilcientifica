@@ -140,10 +140,10 @@ function sanitize(str) {
     nav.classList.toggle('header__nav--aberto', !aberto);
   });
 
-  // Fecha ao clicar em qualquer link da nav (incluindo itens do dropdown)
-  $$('.nav__link, .nav__dropdown__link', nav).forEach(link =>
-    link.addEventListener('click', fecharMenu)
-  );
+  // Fecha ao clicar em qualquer link da nav (incluindo categorias do dropdown),
+  // exceto o próprio link "Produtos" (que só abre/expande o submenu)
+  $$('.nav__list > .nav__item:not(.nav__item--dropdown) > .nav__link, .nav__dropdown a', nav)
+    .forEach(link => link.addEventListener('click', fecharMenu));
 
   // Fecha ao clicar fora do menu
   document.addEventListener('click', function (e) {
